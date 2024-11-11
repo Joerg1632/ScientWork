@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "D:/ScientWork/SimOfMachFailure/cmake-build-debug",
+	"dir-cur-src" : "D:/ScientWork/SimOfMachFailure",
+	"dir-top-bld" : "D:/ScientWork/SimOfMachFailure/cmake-build-debug",
+	"dir-top-src" : "D:/ScientWork/SimOfMachFailure",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/SimOfMachFailure.dir"
+}
