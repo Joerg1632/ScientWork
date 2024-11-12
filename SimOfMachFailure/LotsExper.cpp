@@ -1,99 +1,117 @@
- #include <iostream>
- #include <random>
- #include <vector>
- #include <cmath>
- #include <numeric>
- #include <fstream>
- #include <algorithm>
- #include <iomanip>
- #include <sstream>
+#include <iostream>
+#include <random>
+#include <vector>
+#include <cmath>
+#include <numeric>
+#include <fstream>
+#include <algorithm>
+#include <iomanip>
+#include <windows.h>
 
- const double lambda = 0.1;
- const int initial_N = 100;
- const double delta_t = 0.1;
- const int T = 200;
+const double lambda = 0.001; // exp^(-lambda * delta_t * cur_N)
+const int initial_N = 1000; // Initial number of machines
+const double delta_t = 0.1; // second
+const int T = 1000; // 100 sec, total time = T * delta_t
+const int num_experiments = 100; // Number of experiments
 
- std::default_random_engine generator;
- std::uniform_real_distribution<double> distribution(0.0, 1.0);
+std::default_random_engine generator;
+std::uniform_real_distribution distribution(0.0, 1.0);
 
- double calculateFailureProbability(int cur_t) {
-     return 1 - std::exp(-lambda * cur_t);
- }
+double calculateFailureProbability(int cur_N) {
+    return 1 - std::exp(-lambda * delta_t * cur_N);
+}
 
- void simulateFailures(std::vector<int>& working_machines) {
-     int current_N = initial_N;
+std::vector<int> simulateFailures() {
+    int current_N = initial_N;
+    std::vector working_machines(T, initial_N);
 
-     for (int i = 0; i < T; ++i) {
-         double t = i * delta_t;
+    for (int i = 0; i < T; ++i) {
+        double R_t = calculateFailureProbability(current_N);
+        double z = distribution(generator);
 
-         double R_t = calculateFailureProbability(t);
-         double z = distribution(generator);
+        if (z < R_t && current_N > 0) {
+            current_N--;
+        }
 
-         if (z < R_t && current_N > 0) {
-             current_N--;
-         }
+        working_machines[i] = current_N;
+    }
 
-         working_machines[i] = current_N;
-     }
- }
+    return working_machines;
+}
 
- std::string formatNumber(double number) {
-     std::ostringstream out;
-     out << std::fixed << std::setprecision(2) << number;
-     std::string result = out.str();
-     std::replace(result.begin(), result.end(), '.', ',');
-     return result;
- }
+std::vector<double> calculateMean(const std::vector<std::vector<int>>& experiments) {
+    std::vector mean(T, 0.0);
+    for (int i = 0; i < T; ++i) {
+        double sum = 0.0;
+        for (const auto& experiment : experiments) {
+            sum += experiment[i];
+        }
+        mean[i] = sum / num_experiments;
+    }
+    return mean;
+}
 
- void saveAveragesToCSV(const std::vector<double>& avg_working_machines, const std::vector<double>& avg_mean_values, const std::vector<double>& avg_variance_values) {
-     std::ofstream outfile("results_averages.csv", std::ios::out | std::ios::binary);
+std::vector<double> calculateVariance(const std::vector<std::vector<int>>& experiments, const std::vector<double>& mean) {
+    std::vector variance(T, 0.0);
+    for (int i = 0; i < T; ++i) {
+        double sum = 0.0;
+        for (const auto& experiment : experiments) {
+            sum += std::pow(experiment[i] - mean[i], 2);
+        }
+        variance[i] = sum / num_experiments;
+    }
+    return variance;
+}
 
-     outfile << "\xEF\xBB\xBF";
-     outfile << "Time;Avg_N(t);Avg_Mean;Avg_Variance\n";
+std::string formatNumber(double number) {
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << number;
+    std::string result = out.str();
+    std::replace(result.begin(), result.end(), '.', ',');
+    return result;
+}
 
-     for (int i = 0; i < T; ++i) {
-         outfile << formatNumber(i * delta_t) << ";"
-                 << formatNumber(avg_working_machines[i]) << ";"
-                 << formatNumber(avg_mean_values[i]) << ";"
-                 << formatNumber(avg_variance_values[i]) << "\n";
-     }
+void saveToCSV(const std::vector<double>& mean, const std::vector<double>& variance, const std::vector<std::vector<int>>& experiments) {
+    std::ofstream outfile("resultOfManyExperiments.csv", std::ios::out | std::ios::binary);
+    outfile << "\xEF\xBB\xBF";
+    outfile << "Time;Mean;Mean+Sqrt(Var);Mean-Sqrt(Var);Average Working Machines\n";
 
-     outfile.close();
- }
+    for (int i = 0; i < T; ++i) {
+        if (i % 50 == 0) {
+            outfile << formatNumber(i * delta_t) << ";";
+        } else {
+            outfile << ";";
+        }
 
- int main() {
-     const int num_experiments = 100;
+        outfile << formatNumber(mean[i]) << ";"
+                << formatNumber(mean[i] + std::sqrt(variance[i])) << ";"
+                << formatNumber(mean[i] - std::sqrt(variance[i])) << ";";
 
-     std::vector<double> total_working_machines(T, 0.0);
-     std::vector<double> total_variance_values(T, 0.0);
-     std::vector<std::vector<int>> all_working_machines(num_experiments, std::vector<int>(T, 0));
+        int total_working = 0;
+        for (const auto& experiment : experiments) {
+            total_working += experiment[i];
+        }
+        int average_working = total_working / num_experiments;
 
-     for (int exp = 0; exp < num_experiments; ++exp) {
-         std::vector<int> working_machines(T, initial_N);
-         simulateFailures(working_machines);
-         all_working_machines[exp] = working_machines;
+        outfile << average_working << "\n";
+    }
+    outfile.close();
+}
 
-         for (int i = 0; i < T; ++i) {
-             total_working_machines[i] += working_machines[i];
-         }
-     }
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    setlocale(LC_ALL, "ru_RU.UTF-8");
 
-     std::vector<double> avg_working_machines(T);
-     for (int i = 0; i < T; ++i) {
-         avg_working_machines[i] = total_working_machines[i] / num_experiments;
-     }
+    std::vector<std::vector<int>> experiments;
+    for (int i = 0; i < num_experiments; ++i) {
+        experiments.push_back(simulateFailures());
+    }
 
-     for (int i = 0; i < T; ++i) {
-         double cumulative_variance = 0.0;
-         for (int exp = 0; exp < num_experiments; ++exp) {
-             cumulative_variance += (all_working_machines[exp][i] - avg_working_machines[i]) * (all_working_machines[exp][i] - avg_working_machines[i]);
-         }
-         total_variance_values[i] = cumulative_variance / num_experiments;
-     }
+    std::vector<double> mean = calculateMean(experiments);
+    std::vector<double> variance = calculateVariance(experiments, mean);
 
-     saveAveragesToCSV(avg_working_machines, avg_working_machines, total_variance_values);
+    saveToCSV(mean, variance, experiments);
 
-     std::cout << "Симуляция завершена. Итоговые данные сохранены в файл results_averages.csv" << std::endl;
-
-     return 0;
- }
+    std::cout << "Симуляция завершена. Данные сохранены в файл resultOfManyExperiments.csv" << std::endl;
+    return 0;
+}

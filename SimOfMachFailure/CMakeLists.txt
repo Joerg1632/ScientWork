@@ -3,4 +3,5 @@ project(SimOfMachFailure)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(SimOfMachFailure OneExper.cpp)
+add_executable(OneExperiment OneExper.cpp)
+add_executable(LotsExperiments LotsExper.cpp)

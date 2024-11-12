@@ -41,48 +41,92 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = D$:/ScientWork/SimOfMachFailure/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target SimOfMachFailure
+# Object build statements for EXECUTABLE target OneExperiment
 
 
 #############################################
-# Order-only phony target for SimOfMachFailure
+# Order-only phony target for OneExperiment
 
-build cmake_object_order_depends_target_SimOfMachFailure: phony || .
+build cmake_object_order_depends_target_OneExperiment: phony || .
 
-build CMakeFiles/SimOfMachFailure.dir/OneExper.cpp.obj.ddi: CXX_SCAN__SimOfMachFailure_Debug D$:/ScientWork/SimOfMachFailure/OneExper.cpp || cmake_object_order_depends_target_SimOfMachFailure
-  DEP_FILE = CMakeFiles\SimOfMachFailure.dir\OneExper.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\SimOfMachFailure.dir\OneExper.cpp.obj.ddi
+build CMakeFiles/OneExperiment.dir/OneExper.cpp.obj.ddi: CXX_SCAN__OneExperiment_Debug D$:/ScientWork/SimOfMachFailure/OneExper.cpp || cmake_object_order_depends_target_OneExperiment
+  DEP_FILE = CMakeFiles\OneExperiment.dir\OneExper.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\OneExperiment.dir\OneExper.cpp.obj.ddi
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJ_FILE = CMakeFiles\SimOfMachFailure.dir\OneExper.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = CMakeFiles\SimOfMachFailure.dir\OneExper.cpp.obj.ddi.i
+  OBJ_FILE = CMakeFiles\OneExperiment.dir\OneExper.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\OneExperiment.dir\OneExper.cpp.obj.ddi.i
 
-build CMakeFiles/SimOfMachFailure.dir/OneExper.cpp.obj: CXX_COMPILER__SimOfMachFailure_scanned_Debug D$:/ScientWork/SimOfMachFailure/OneExper.cpp | CMakeFiles/SimOfMachFailure.dir/OneExper.cpp.obj.modmap || cmake_object_order_depends_target_SimOfMachFailure CMakeFiles/SimOfMachFailure.dir/CXX.dd
-  DEP_FILE = CMakeFiles\SimOfMachFailure.dir\OneExper.cpp.obj.d
-  DYNDEP_MODULE_MAP_FILE = CMakeFiles\SimOfMachFailure.dir\OneExper.cpp.obj.modmap
+build CMakeFiles/OneExperiment.dir/OneExper.cpp.obj: CXX_COMPILER__OneExperiment_scanned_Debug D$:/ScientWork/SimOfMachFailure/OneExper.cpp | CMakeFiles/OneExperiment.dir/OneExper.cpp.obj.modmap || cmake_object_order_depends_target_OneExperiment CMakeFiles/OneExperiment.dir/CXX.dd
+  DEP_FILE = CMakeFiles\OneExperiment.dir\OneExper.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\OneExperiment.dir\OneExper.cpp.obj.modmap
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\SimOfMachFailure.dir
-  OBJECT_FILE_DIR = CMakeFiles\SimOfMachFailure.dir
-  dyndep = CMakeFiles/SimOfMachFailure.dir/CXX.dd
+  OBJECT_DIR = CMakeFiles\OneExperiment.dir
+  OBJECT_FILE_DIR = CMakeFiles\OneExperiment.dir
+  dyndep = CMakeFiles/OneExperiment.dir/CXX.dd
 
-build CMakeFiles/SimOfMachFailure.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/SimOfMachFailure.dir/CXXModules.json CMakeFiles/SimOfMachFailure.dir/OneExper.cpp.obj.modmap: CXX_DYNDEP__SimOfMachFailure_Debug CMakeFiles/SimOfMachFailure.dir/OneExper.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/SimOfMachFailure.dir/CXXDependInfo.json
+build CMakeFiles/OneExperiment.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/OneExperiment.dir/CXXModules.json CMakeFiles/OneExperiment.dir/OneExper.cpp.obj.modmap: CXX_DYNDEP__OneExperiment_Debug CMakeFiles/OneExperiment.dir/OneExper.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/OneExperiment.dir/CXXDependInfo.json
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target SimOfMachFailure
+# Link build statements for EXECUTABLE target OneExperiment
 
 
 #############################################
-# Link the executable SimOfMachFailure.exe
+# Link the executable OneExperiment.exe
 
-build SimOfMachFailure.exe: CXX_EXECUTABLE_LINKER__SimOfMachFailure_Debug CMakeFiles/SimOfMachFailure.dir/OneExper.cpp.obj
+build OneExperiment.exe: CXX_EXECUTABLE_LINKER__OneExperiment_Debug CMakeFiles/OneExperiment.dir/OneExper.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\SimOfMachFailure.dir
+  OBJECT_DIR = CMakeFiles\OneExperiment.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = SimOfMachFailure.exe
-  TARGET_IMPLIB = libSimOfMachFailure.dll.a
-  TARGET_PDB = SimOfMachFailure.exe.dbg
+  TARGET_FILE = OneExperiment.exe
+  TARGET_IMPLIB = libOneExperiment.dll.a
+  TARGET_PDB = OneExperiment.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target LotsExperiments
+
+
+#############################################
+# Order-only phony target for LotsExperiments
+
+build cmake_object_order_depends_target_LotsExperiments: phony || .
+
+build CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.ddi: CXX_SCAN__LotsExperiments_Debug D$:/ScientWork/SimOfMachFailure/LotsExper.cpp || cmake_object_order_depends_target_LotsExperiments
+  DEP_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.ddi
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJ_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.ddi.i
+
+build CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj: CXX_COMPILER__LotsExperiments_scanned_Debug D$:/ScientWork/SimOfMachFailure/LotsExper.cpp | CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperiments CMakeFiles/LotsExperiments.dir/CXX.dd
+  DEP_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.modmap
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LotsExperiments.dir
+  OBJECT_FILE_DIR = CMakeFiles\LotsExperiments.dir
+  dyndep = CMakeFiles/LotsExperiments.dir/CXX.dd
+
+build CMakeFiles/LotsExperiments.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir/CXXModules.json CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.modmap: CXX_DYNDEP__LotsExperiments_Debug CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir/CXXDependInfo.json
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target LotsExperiments
+
+
+#############################################
+# Link the executable LotsExperiments.exe
+
+build LotsExperiments.exe: CXX_EXECUTABLE_LINKER__LotsExperiments_Debug CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\LotsExperiments.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = LotsExperiments.exe
+  TARGET_IMPLIB = libLotsExperiments.dll.a
+  TARGET_PDB = LotsExperiments.exe.dbg
 
 
 #############################################
@@ -110,7 +154,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build SimOfMachFailure: phony SimOfMachFailure.exe
+build LotsExperiments: phony LotsExperiments.exe
+
+build OneExperiment: phony OneExperiment.exe
 
 # =============================================================================
 # Folder targets.
@@ -120,7 +166,7 @@ build SimOfMachFailure: phony SimOfMachFailure.exe
 #############################################
 # Folder: D:/ScientWork/SimOfMachFailure/cmake-build-debug
 
-build all: phony SimOfMachFailure.exe
+build all: phony OneExperiment.exe LotsExperiments.exe
 
 # =============================================================================
 # Built-in targets

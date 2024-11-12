@@ -8,10 +8,10 @@
 #include <iomanip>
 #include <windows.h>
 
-const double lambda = 0.001;
-const int initial_N = 100;
-const double delta_t = 0.1;
-const int T = 1000;
+const double lambda = 0.001; // exp^(-lambda * delta_t * cur_N)
+const int initial_N = 100; //num_initial_work_machine
+const double delta_t = 0.1; //second
+const int T = 1000; // 100 sec, total time = T * delta_t
 
 std::default_random_engine generator;
 std::uniform_real_distribution distribution(0.0, 1.0);
@@ -45,16 +45,21 @@ std::string formatNumber(double number) {
 
 
 void saveToCSV(const std::vector<int>& working_machines) {
-    std::ofstream outfile("results.csv", std::ios::out | std::ios::binary);
+    std::ofstream outfile("resultsOfOneExperiment.csv", std::ios::out | std::ios::binary);
     outfile << "\xEF\xBB\xBF";
     outfile << "Time;N(t)\n";
 
     for (int i = 0; i < T; ++i) {
-        outfile << formatNumber(i * delta_t) << ";"
-                << working_machines[i] << "\n";
+        if (i % 50 == 0) {
+            outfile << formatNumber(i * delta_t) << ";" << working_machines[i] << "\n";
+        } else {
+            outfile << ";" << working_machines[i] << "\n";
+        }
     }
     outfile.close();
 }
+
+
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
