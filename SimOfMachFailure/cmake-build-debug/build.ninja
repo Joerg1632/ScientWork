@@ -93,22 +93,22 @@ build OneExperiment.exe: CXX_EXECUTABLE_LINKER__OneExperiment_Debug CMakeFiles/O
 
 build cmake_object_order_depends_target_LotsExperiments: phony || .
 
-build CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.ddi: CXX_SCAN__LotsExperiments_Debug D$:/ScientWork/SimOfMachFailure/LotsExper.cpp || cmake_object_order_depends_target_LotsExperiments
-  DEP_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.ddi
+build CMakeFiles/LotsExperiments.dir/LotsExperExp.cpp.obj.ddi: CXX_SCAN__LotsExperiments_Debug D$:/ScientWork/SimOfMachFailure/LotsExperExp.cpp || cmake_object_order_depends_target_LotsExperiments
+  DEP_FILE = CMakeFiles\LotsExperiments.dir\LotsExperExp.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperiments.dir\LotsExperExp.cpp.obj.ddi
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJ_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.ddi.i
+  OBJ_FILE = CMakeFiles\LotsExperiments.dir\LotsExperExp.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperiments.dir\LotsExperExp.cpp.obj.ddi.i
 
-build CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj: CXX_COMPILER__LotsExperiments_scanned_Debug D$:/ScientWork/SimOfMachFailure/LotsExper.cpp | CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperiments CMakeFiles/LotsExperiments.dir/CXX.dd
-  DEP_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.d
-  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperiments.dir\LotsExper.cpp.obj.modmap
+build CMakeFiles/LotsExperiments.dir/LotsExperExp.cpp.obj: CXX_COMPILER__LotsExperiments_scanned_Debug D$:/ScientWork/SimOfMachFailure/LotsExperExp.cpp | CMakeFiles/LotsExperiments.dir/LotsExperExp.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperiments CMakeFiles/LotsExperiments.dir/CXX.dd
+  DEP_FILE = CMakeFiles\LotsExperiments.dir\LotsExperExp.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperiments.dir\LotsExperExp.cpp.obj.modmap
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\LotsExperiments.dir
   OBJECT_FILE_DIR = CMakeFiles\LotsExperiments.dir
   dyndep = CMakeFiles/LotsExperiments.dir/CXX.dd
 
-build CMakeFiles/LotsExperiments.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir/CXXModules.json CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.modmap: CXX_DYNDEP__LotsExperiments_Debug CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir/CXXDependInfo.json
+build CMakeFiles/LotsExperiments.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir/CXXModules.json CMakeFiles/LotsExperiments.dir/LotsExperExp.cpp.obj.modmap: CXX_DYNDEP__LotsExperiments_Debug CMakeFiles/LotsExperiments.dir/LotsExperExp.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir/CXXDependInfo.json
 
 
 # =============================================================================
@@ -118,7 +118,7 @@ build CMakeFiles/LotsExperiments.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cm
 #############################################
 # Link the executable LotsExperiments.exe
 
-build LotsExperiments.exe: CXX_EXECUTABLE_LINKER__LotsExperiments_Debug CMakeFiles/LotsExperiments.dir/LotsExper.cpp.obj
+build LotsExperiments.exe: CXX_EXECUTABLE_LINKER__LotsExperiments_Debug CMakeFiles/LotsExperiments.dir/LotsExperExp.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\LotsExperiments.dir
@@ -127,6 +127,138 @@ build LotsExperiments.exe: CXX_EXECUTABLE_LINKER__LotsExperiments_Debug CMakeFil
   TARGET_FILE = LotsExperiments.exe
   TARGET_IMPLIB = libLotsExperiments.dll.a
   TARGET_PDB = LotsExperiments.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target LotsExperimentsParallel
+
+
+#############################################
+# Order-only phony target for LotsExperimentsParallel
+
+build cmake_object_order_depends_target_LotsExperimentsParallel: phony || .
+
+build CMakeFiles/LotsExperimentsParallel.dir/LotsExperParallel.cpp.obj.ddi: CXX_SCAN__LotsExperimentsParallel_Debug D$:/ScientWork/SimOfMachFailure/LotsExperParallel.cpp || cmake_object_order_depends_target_LotsExperimentsParallel
+  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\LotsExperParallel.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperimentsParallel.dir\LotsExperParallel.cpp.obj.ddi
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJ_FILE = CMakeFiles\LotsExperimentsParallel.dir\LotsExperParallel.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperimentsParallel.dir\LotsExperParallel.cpp.obj.ddi.i
+
+build CMakeFiles/LotsExperimentsParallel.dir/LotsExperParallel.cpp.obj: CXX_COMPILER__LotsExperimentsParallel_scanned_Debug D$:/ScientWork/SimOfMachFailure/LotsExperParallel.cpp | CMakeFiles/LotsExperimentsParallel.dir/LotsExperParallel.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperimentsParallel CMakeFiles/LotsExperimentsParallel.dir/CXX.dd
+  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\LotsExperParallel.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperimentsParallel.dir\LotsExperParallel.cpp.obj.modmap
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LotsExperimentsParallel.dir
+  OBJECT_FILE_DIR = CMakeFiles\LotsExperimentsParallel.dir
+  dyndep = CMakeFiles/LotsExperimentsParallel.dir/CXX.dd
+
+build CMakeFiles/LotsExperimentsParallel.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir/CXXModules.json CMakeFiles/LotsExperimentsParallel.dir/LotsExperParallel.cpp.obj.modmap: CXX_DYNDEP__LotsExperimentsParallel_Debug CMakeFiles/LotsExperimentsParallel.dir/LotsExperParallel.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir/CXXDependInfo.json
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target LotsExperimentsParallel
+
+
+#############################################
+# Link the executable LotsExperimentsParallel.exe
+
+build LotsExperimentsParallel.exe: CXX_EXECUTABLE_LINKER__LotsExperimentsParallel_Debug CMakeFiles/LotsExperimentsParallel.dir/LotsExperParallel.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\LotsExperimentsParallel.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = LotsExperimentsParallel.exe
+  TARGET_IMPLIB = libLotsExperimentsParallel.dll.a
+  TARGET_PDB = LotsExperimentsParallel.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Task
+
+
+#############################################
+# Order-only phony target for Task
+
+build cmake_object_order_depends_target_Task: phony || .
+
+build CMakeFiles/Task.dir/Task.cpp.obj.ddi: CXX_SCAN__Task_Debug D$:/ScientWork/SimOfMachFailure/Task.cpp || cmake_object_order_depends_target_Task
+  DEP_FILE = CMakeFiles\Task.dir\Task.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Task.dir\Task.cpp.obj.ddi
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJ_FILE = CMakeFiles\Task.dir\Task.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Task.dir\Task.cpp.obj.ddi.i
+
+build CMakeFiles/Task.dir/Task.cpp.obj: CXX_COMPILER__Task_scanned_Debug D$:/ScientWork/SimOfMachFailure/Task.cpp | CMakeFiles/Task.dir/Task.cpp.obj.modmap || cmake_object_order_depends_target_Task CMakeFiles/Task.dir/CXX.dd
+  DEP_FILE = CMakeFiles\Task.dir\Task.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Task.dir\Task.cpp.obj.modmap
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Task.dir
+  OBJECT_FILE_DIR = CMakeFiles\Task.dir
+  dyndep = CMakeFiles/Task.dir/CXX.dd
+
+build CMakeFiles/Task.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/Task.dir/CXXModules.json CMakeFiles/Task.dir/Task.cpp.obj.modmap: CXX_DYNDEP__Task_Debug CMakeFiles/Task.dir/Task.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/Task.dir/CXXDependInfo.json
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Task
+
+
+#############################################
+# Link the executable Task.exe
+
+build Task.exe: CXX_EXECUTABLE_LINKER__Task_Debug CMakeFiles/Task.dir/Task.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Task.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Task.exe
+  TARGET_IMPLIB = libTask.dll.a
+  TARGET_PDB = Task.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target LotsExperimentVeibulla
+
+
+#############################################
+# Order-only phony target for LotsExperimentVeibulla
+
+build cmake_object_order_depends_target_LotsExperimentVeibulla: phony || .
+
+build CMakeFiles/LotsExperimentVeibulla.dir/LotsExperVeibula.cpp.obj.ddi: CXX_SCAN__LotsExperimentVeibulla_Debug D$:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp || cmake_object_order_depends_target_LotsExperimentVeibulla
+  DEP_FILE = CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.ddi
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJ_FILE = CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.ddi.i
+
+build CMakeFiles/LotsExperimentVeibulla.dir/LotsExperVeibula.cpp.obj: CXX_COMPILER__LotsExperimentVeibulla_scanned_Debug D$:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp | CMakeFiles/LotsExperimentVeibulla.dir/LotsExperVeibula.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperimentVeibulla CMakeFiles/LotsExperimentVeibulla.dir/CXX.dd
+  DEP_FILE = CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.modmap
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LotsExperimentVeibulla.dir
+  OBJECT_FILE_DIR = CMakeFiles\LotsExperimentVeibulla.dir
+  dyndep = CMakeFiles/LotsExperimentVeibulla.dir/CXX.dd
+
+build CMakeFiles/LotsExperimentVeibulla.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentVeibulla.dir/CXXModules.json CMakeFiles/LotsExperimentVeibulla.dir/LotsExperVeibula.cpp.obj.modmap: CXX_DYNDEP__LotsExperimentVeibulla_Debug CMakeFiles/LotsExperimentVeibulla.dir/LotsExperVeibula.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentVeibulla.dir/CXXDependInfo.json
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target LotsExperimentVeibulla
+
+
+#############################################
+# Link the executable LotsExperimentVeibulla.exe
+
+build LotsExperimentVeibulla.exe: CXX_EXECUTABLE_LINKER__LotsExperimentVeibulla_Debug CMakeFiles/LotsExperimentVeibulla.dir/LotsExperVeibula.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\LotsExperimentVeibulla.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = LotsExperimentVeibulla.exe
+  TARGET_IMPLIB = libLotsExperimentVeibulla.dll.a
+  TARGET_PDB = LotsExperimentVeibulla.exe.dbg
 
 
 #############################################
@@ -154,9 +286,15 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build LotsExperimentVeibulla: phony LotsExperimentVeibulla.exe
+
 build LotsExperiments: phony LotsExperiments.exe
 
+build LotsExperimentsParallel: phony LotsExperimentsParallel.exe
+
 build OneExperiment: phony OneExperiment.exe
+
+build Task: phony Task.exe
 
 # =============================================================================
 # Folder targets.
@@ -166,7 +304,7 @@ build OneExperiment: phony OneExperiment.exe
 #############################################
 # Folder: D:/ScientWork/SimOfMachFailure/cmake-build-debug
 
-build all: phony OneExperiment.exe LotsExperiments.exe
+build all: phony OneExperiment.exe LotsExperiments.exe LotsExperimentsParallel.exe Task.exe LotsExperimentVeibulla.exe
 
 # =============================================================================
 # Built-in targets

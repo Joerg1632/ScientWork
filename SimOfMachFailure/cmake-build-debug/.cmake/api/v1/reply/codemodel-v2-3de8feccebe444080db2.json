@@ -16,7 +16,10 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3,
+						4
 					]
 				}
 			],
@@ -32,7 +35,10 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3,
+						4
 					]
 				}
 			],
@@ -40,9 +46,23 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "LotsExperimentVeibulla::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-LotsExperimentVeibulla-Debug-df8660aff62a8ee87793.json",
+					"name" : "LotsExperimentVeibulla",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "LotsExperiments::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-LotsExperiments-Debug-b0f595794790322d56be.json",
+					"jsonFile" : "target-LotsExperiments-Debug-4d6645f76995cc51de81.json",
 					"name" : "LotsExperiments",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "LotsExperimentsParallel::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-LotsExperimentsParallel-Debug-4e200b0d2c819d215f80.json",
+					"name" : "LotsExperimentsParallel",
 					"projectIndex" : 0
 				},
 				{
@@ -50,6 +70,13 @@
 					"id" : "OneExperiment::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-OneExperiment-Debug-5dd38632031bb747574d.json",
 					"name" : "OneExperiment",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Task::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Task-Debug-2c64b578451887bc3d1c.json",
+					"name" : "Task",
 					"projectIndex" : 0
 				}
 			]

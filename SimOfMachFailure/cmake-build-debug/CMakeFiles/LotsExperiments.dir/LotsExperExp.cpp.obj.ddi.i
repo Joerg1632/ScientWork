@@ -1,8 +1,8 @@
-# 0 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 0 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
 # 1 "D:\\ScientWork\\SimOfMachFailure\\cmake-build-debug//"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 1 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 3
        
@@ -41159,7 +41159,7 @@ namespace std
 # 85 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 3
 
 }
-# 2 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 2 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 1 3
 # 32 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 3
        
@@ -66839,13 +66839,13 @@ namespace __detail
 
 }
 # 51 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 2 3
-# 3 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 3 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 1 3
 # 39 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 3
        
 # 40 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 3
-# 5 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 5 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 3
        
@@ -69557,7 +69557,7 @@ namespace std
 
 }
 # 1361 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 2 3
-# 6 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 6 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 1 3
 # 58 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 3
        
@@ -79723,7 +79723,7 @@ lexicographical_compare(_ExecutionPolicy&& __exec, _ForwardIterator1 __first1, _
 
 }
 # 86 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 2 3
-# 7 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 7 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip" 3
        
@@ -85206,7 +85206,7 @@ namespace std
 
 
 }
-# 8 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 8 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 1 3
 # 9 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 3
 # 1 "D:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
@@ -175146,7 +175146,7 @@ extern "C" {
 # 509 "D:/mingw64/x86_64-w64-mingw32/include/imm.h" 3
 }
 # 131 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
-# 9 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 9 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 1 3
 # 33 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 3
        
@@ -199354,10 +199354,10 @@ namespace __detail
 
 }
 # 3361 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 2 3
-# 10 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 2
+# 10 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 2
 
 
-# 11 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 11 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
 double lambda;
 int initial_N;
 double delta_t;
@@ -199510,9 +199510,9 @@ void readInput(const std::string& filename) {
     if (!infile.is_open()) {
         std::cerr << "Ошибка: не удалось открыть файл " << filename << std::endl;
         exit(
-# 162 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 3
+# 162 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 3
             1
-# 162 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 162 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
                         );
     }
 
@@ -199531,9 +199531,9 @@ void readInput(const std::string& filename) {
         if (iss.fail()) {
             std::cerr << "Ошибка: не удалось считать параметр из строки: " << line << std::endl;
             exit(
-# 179 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 3
+# 179 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 3
                 1
-# 179 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 179 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
                             );
         }
 
@@ -199543,9 +199543,9 @@ void readInput(const std::string& filename) {
     if (line_count < 6) {
         std::cerr << "Ошибка: недостаточно параметров в файле. Ожидалось 6, считано " << line_count << std::endl;
         exit(
-# 187 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 3
+# 187 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 3
             1
-# 187 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 187 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
                         );
     }
 
@@ -199554,14 +199554,14 @@ void readInput(const std::string& filename) {
 
 int main() {
     SetConsoleOutputCP(
-# 194 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 3
+# 194 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 3
                       65001
-# 194 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 194 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
                              );
     setlocale(
-# 195 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp" 3
+# 195 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp" 3
              0
-# 195 "D:/ScientWork/SimOfMachFailure/LotsExper.cpp"
+# 195 "D:/ScientWork/SimOfMachFailure/LotsExperExp.cpp"
                    , "ru_RU.UTF-8");
 
     auto start_time = std::chrono::high_resolution_clock::now();
