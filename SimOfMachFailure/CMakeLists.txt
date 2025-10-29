@@ -3,8 +3,8 @@ project(SimOfMachFailure)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(OneExperiment OneExper.cpp)
-add_executable(LotsExperiments LotsExperExp.cpp)
-add_executable(LotsExperimentsParallel LotsExperParallel.cpp)
-add_executable(Task Task.cpp)
-add_executable(LotsExperimentVeibulla LotsExperVeibula.cpp)
+add_executable(OneExperiment src/OneExper.cpp)
+add_executable(LotsExperiments src/LotsExperExp.cpp)
+add_executable(LotsExperimentsLogNormal src/LotsExperLogNormal.cpp)
+add_executable(LotsExperimentsParallel src/LotsExperParallel.cpp)
+add_executable(LotsExperimentVeibulla src/LotsExperVeibula.cpp)

@@ -1,8 +1,8 @@
-# 0 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp"
+# 0 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
 # 1 "D:\\ScientWork\\SimOfMachFailure\\cmake-build-debug//"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp"
+# 1 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 3
        
@@ -41159,7 +41159,7 @@ namespace std
 # 85 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 3
 
 }
-# 2 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 2 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 1 3
 # 32 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 3
        
@@ -66839,13 +66839,13 @@ namespace __detail
 
 }
 # 51 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 2 3
-# 3 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 3 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 1 3
 # 39 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 3
        
 # 40 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 3
-# 5 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 5 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 3
        
@@ -69557,7 +69557,7 @@ namespace std
 
 }
 # 1361 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 2 3
-# 6 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 6 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 1 3
 # 58 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 3
        
@@ -79723,7 +79723,7 @@ lexicographical_compare(_ExecutionPolicy&& __exec, _ForwardIterator1 __first1, _
 
 }
 # 86 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 2 3
-# 7 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 7 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip" 3
        
@@ -85206,7 +85206,7 @@ namespace std
 
 
 }
-# 8 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 8 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 # 1 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 1 3
 # 9 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 3
 # 1 "D:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
@@ -175146,7 +175146,7 @@ extern "C" {
 # 509 "D:/mingw64/x86_64-w64-mingw32/include/imm.h" 3
 }
 # 131 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
-# 9 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 9 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 1 3
 # 33 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 3
        
@@ -199354,7 +199354,7 @@ namespace __detail
 
 }
 # 3361 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 2 3
-# 10 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 10 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/queue" 1 3
 # 58 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/queue" 3
        
@@ -202776,10 +202776,10 @@ namespace std
        
 # 48 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/version.h" 3
 # 70 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/queue" 2 3
-# 11 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 2
+# 11 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
 
 
-# 12 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp"
+# 12 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
 double eta_f, eta_r;
 int initial_N;
 double delta_t;
@@ -202957,14 +202957,14 @@ void readInput(const std::string& filename) {
 
 int main() {
     SetConsoleOutputCP(
-# 188 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 3
+# 188 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 3
                       65001
-# 188 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp"
+# 188 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
                              );
     setlocale(
-# 189 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp" 3
+# 189 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 3
              0
-# 189 "D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp"
+# 189 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
                    , "ru_RU.UTF-8");
 
     const auto start_time = std::chrono::high_resolution_clock::now();

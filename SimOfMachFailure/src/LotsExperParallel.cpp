@@ -28,7 +28,7 @@ double calculateRecoveryProbability(int cur_N) {
 
 std::vector<double> calculateAnalyticalM() {
     int num_steps = T / delta_t;
-    std::vector<double> analytical_mean(num_steps, 0.0);
+    std::vector analytical_mean(num_steps, 0.0);
     for (int t = 0; t < num_steps; ++t) {
         double time = t * delta_t;
         double coeff1 = (lambda * initial_N) / (lambda + nu);
@@ -167,7 +167,7 @@ int main(int argc, char** argv) {
     double start_time = 0;
 
     if (rank == 0) {
-        readInput("/mnt/d/ScientWork/SimOfMachFailure/config.txt");
+        readInput("/mnt/d/ScientWork/SimOfMachFailure/configExp.txt");
         start_time = MPI_Wtime();
     }
 

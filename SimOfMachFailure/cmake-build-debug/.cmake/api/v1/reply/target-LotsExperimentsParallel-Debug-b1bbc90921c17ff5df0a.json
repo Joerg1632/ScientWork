@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -98,7 +98,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "LotsExperParallel.cpp",
+			"path" : "src/LotsExperParallel.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

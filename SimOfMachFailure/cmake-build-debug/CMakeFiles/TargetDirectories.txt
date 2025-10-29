@@ -1,7 +1,7 @@
 D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/OneExperiment.dir
 D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir
+D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsLogNormal.dir
 D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir
-D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/Task.dir
 D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentVeibulla.dir
 D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/rebuild_cache.dir

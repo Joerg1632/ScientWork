@@ -1,5 +1,5 @@
-CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.ddi: \
- D:/ScientWork/SimOfMachFailure/LotsExperVeibula.cpp \
+CMakeFiles\LotsExperimentsLogNormal.dir\src\LotsExperLogNormal.cpp.obj.ddi: \
+ D:/ScientWork/SimOfMachFailure/src/LotsExperLogNormal.cpp \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/requires_hosted.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -183,6 +183,36 @@ CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.ddi: \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/fstream.tcc \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/filesystem \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/fs_fwd.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/chrono.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ratio \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ctime \
+ D:/mingw64/x86_64-w64-mingw32/include/time.h \
+ D:/mingw64/x86_64-w64-mingw32/include/_timeval.h \
+ D:/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/parse_numbers.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/fs_path.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/locale \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/locale_facets_nonio.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/locale_facets_nonio.tcc \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/locale_conv.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/quoted_string.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/sstream \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/sstream.tcc \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/codecvt \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ext/concurrence.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/shared_ptr.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/shared_ptr_base.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/allocated_ptr.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/unique_ptr.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ext/aligned_buffer.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/align.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/fs_dir.h \
+ D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/fs_ops.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/stl_algo.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/algorithmfwd.h \
@@ -191,20 +221,6 @@ CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.ddi: \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/ranges_algo.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/ranges_algobase.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/pstl/glue_algorithm_defs.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/locale \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/locale_facets_nonio.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ctime \
- D:/mingw64/x86_64-w64-mingw32/include/time.h \
- D:/mingw64/x86_64-w64-mingw32/include/_timeval.h \
- D:/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/locale_facets_nonio.tcc \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/locale_conv.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/quoted_string.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/sstream \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/sstream.tcc \
  D:/mingw64/x86_64-w64-mingw32/include/windows.h \
  D:/mingw64/x86_64-w64-mingw32/include/sdkddkver.h \
  D:/mingw64/x86_64-w64-mingw32/include/excpt.h \
@@ -452,16 +468,6 @@ CMakeFiles\LotsExperimentVeibulla.dir\LotsExperVeibula.cpp.obj.ddi: \
  D:/mingw64/x86_64-w64-mingw32/include/mcx.h \
  D:/mingw64/x86_64-w64-mingw32/include/imm.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/chrono.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ratio \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/parse_numbers.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/shared_ptr.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/shared_ptr_base.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/allocated_ptr.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/unique_ptr.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ext/aligned_buffer.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/ext/concurrence.h \
- D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/align.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/chrono_io.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/format \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/array \

@@ -129,14 +129,13 @@ void saveToCSV(const std::vector<double>& failure_mean,
     outfile << "Time;FailureMean;FailureMean+Sqrt(Var);"
                "AnalyticalMean;AnalyticalMean+sqrt(Var);\n";
 
-    int num_steps = T/delta_t;
-    int step_interval = 100;
+    const int num_steps = T/delta_t;
 
     for (int i = 0; i < num_steps; ++i) {
-        if(i %step_interval == 0) {
+        if(int step_interval = 100; i %step_interval == 0) {
             double time_in_hours = (i * delta_t) / 3.6;
             if (std::fmod(time_in_hours, 0.5) == 0){
-                outfile << formatNumber(i * delta_t/3.6) << ";"
+                outfile << formatNumber(i * delta_t / 3.6) << ";"
                 << formatNumber(initial_N - failure_mean[i]) << ";"
                 << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
                 << formatNumber(analiticalMean[i]) << ";"
@@ -196,7 +195,7 @@ int main() {
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
-    readInput("D:/ScientWork/SimOfMachFailure/config.txt");
+    readInput("D:/ScientWork/SimOfMachFailure/configExp.txt");
 
     std::vector<std::vector<int>> experiments;
     std::vector<int> working_machines;

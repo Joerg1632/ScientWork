@@ -1,0 +1,8 @@
+9.03       # mu_f → MTTF ≈ 10000 сек
+0.55       # sigma_f → CV ≈ 0.6
+4.16       # mu_r → MTTR ≈ 100 сек
+0.70       # sigma_r → CV ≈ 0.8
+10000      # N
+0.1        # delta_t
+25200      # T
+100        # experiments
