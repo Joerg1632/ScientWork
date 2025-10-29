@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <windows.h>
 #include <chrono>
+#include <filesystem>
 
 double lambda;         // failure rate 1 - exp^(-lambda * delta_t * cur_N)
 int initial_N;         // Initial number of machines
@@ -111,11 +112,36 @@ std::string formatNumber(double number) {
     return result;
 }
 
+std::string getUniqueFilename(const std::string& base_path) {
+    namespace fs = std::filesystem;
+
+    fs::create_directories(fs::path(base_path).parent_path());
+
+    std::string filename = base_path;
+    std::string base = fs::path(base_path).stem().string();
+    std::string ext = fs::path(base_path).extension().string();
+    std::string dir = fs::path(base_path).parent_path().string();
+
+    int counter = 0;
+    while (fs::exists(filename)) {
+        ++counter;
+        filename = dir + "/" + base + std::to_string(counter) + ext;
+    }
+
+    return filename;
+}
+
 void saveToCSV(const std::vector<double>& failure_mean,
                const std::vector<double>& failure_variance,
                const std::vector<double>& analiticalMean,
                const std::vector<double>& analiticalVar) {
-    std::ofstream outfile("resultOfManyExperiments.csv", std::ios::out | std::ios::binary);
+    const std::string unique_path = getUniqueFilename("D:/ScientWork/SimOfMachFailure/results/resultOfManyExperiments.csv");
+
+    std::ofstream outfile(unique_path, std::ios::out | std::ios::binary);
+    if (!outfile.is_open()) {
+        std::cerr << "Ошибка: не удалось создать файл: " << unique_path << std::endl;
+        return;
+    }
     outfile << "\xEF\xBB\xBF"; // UTF-8 BOM
 
     outfile << "Parameters:\n";
@@ -214,7 +240,7 @@ int main() {
 
     saveToCSV(failure_mean,variance_mean,analitical_mean, analitical_var);
 
-    std::cout << "Симуляция завершена. Данные сохранены в файл resultOfManyExperiments.csv" << std::endl;
+    std::cout << "Симуляция завершена. Данные сохранены в файл resultOfManyExperiments.csv в папке results" << std::endl;
     std::cout << "Время выполнения: " << elapsed_seconds.count() << " секунд." << std::endl;
     return 0;
 }

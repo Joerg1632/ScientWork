@@ -8,6 +8,7 @@
 #include <windows.h>
 #include <chrono>
 #include <queue>
+#include <filesystem>
 
 double eta_f, eta_r;            // scale for Weibull (for failure)
 int initial_N;         // Initial number of machines
@@ -25,15 +26,14 @@ struct Machine {
 
 std::vector<int> simulate() {
     int num_steps = static_cast<int>(T / delta_t);
-    std::vector<int> working_machines(num_steps, 0);
+    std::vector working_machines(num_steps, 0);
 
-    std::weibull_distribution<double> failure_dist(beta_f, eta_f);
-    std::weibull_distribution<double> repair_dist(beta_r, eta_r);  // Weibull для ремонта
+    std::weibull_distribution failure_dist(beta_f, eta_f);
+    std::weibull_distribution repair_dist(beta_r, eta_r);
 
     std::vector<Machine> machines(initial_N);
     std::priority_queue<std::pair<double, int>, std::vector<std::pair<double, int>>, std::greater<>> events;
 
-    // Инициализация: все работают, планируем первый отказ
     for (int i = 0; i < initial_N; ++i) {
         double ttf = failure_dist(generator);
         machines[i].event_time = ttf;
@@ -48,9 +48,9 @@ std::vector<int> simulate() {
         auto [time, mid] = events.top();
         events.pop();
 
-        if (time > T) break;
+        if (time > T)
+            break;
 
-        // Заполняем шаги между событиями
         double next_step_time = step * delta_t;
         while (step < num_steps && next_step_time < time) {
             working_machines[step++] = current_working;
@@ -59,33 +59,31 @@ std::vector<int> simulate() {
 
         current_time = time;
         Machine& m = machines[mid];
-        if (std::abs(m.event_time - time) > 1e-9) continue;  // устаревшее событие
+        if (std::abs(m.event_time - time) > 1e-9)
+            continue;
 
-        if (m.working) {
-            // === ОТКАЗ ===
+        if (m.working)
+        {
             m.working = false;
             --current_working;
 
-            // Планируем ремонт (TTR из Weibull)
             double ttr = repair_dist(generator);
             m.event_time = current_time + ttr;
             events.push({m.event_time, mid});
-        } else {
-            // === ВОССТАНОВЛЕНИЕ ===
+        }
+        else
+        {
             m.working = true;
             ++current_working;
 
-            // Планируем следующий отказ (машина "как новая")
             double ttf = failure_dist(generator);
             m.event_time = current_time + ttf;
             events.push({m.event_time, mid});
         }
     }
 
-    // Заполняем остаток
-    while (step < num_steps) {
+    while (step < num_steps)
         working_machines[step++] = current_working;
-    }
 
     return working_machines;
 }
@@ -105,7 +103,7 @@ std::vector<double> calculateMean(const std::vector<std::vector<int>>& experimen
 
 std::vector<double> calculateVariance(const std::vector<std::vector<int>>& experiments, const std::vector<double>& mean) {
     int num_steps = static_cast<int>(T / delta_t);
-    std::vector<double> variance(num_steps, 0.0);
+    std::vector variance(num_steps, 0.0);
     for (int i = 0; i < num_steps; ++i) {
         double sum = 0.0;
         for (const auto& experiment : experiments) {
@@ -124,9 +122,36 @@ std::string formatNumber(double number) {
     return result;
 }
 
+std::string getUniqueFilename(const std::string& base_path) {
+    namespace fs = std::filesystem;
+
+    fs::create_directories(fs::path(base_path).parent_path());
+
+    std::string filename = base_path;
+    std::string base = fs::path(base_path).stem().string();
+    std::string ext = fs::path(base_path).extension().string();
+    std::string dir = fs::path(base_path).parent_path().string();
+
+    int counter = 0;
+    while (fs::exists(filename)) {
+        ++counter;
+        filename = dir + "/" + base + std::to_string(counter) + ext;
+    }
+
+    return filename;
+}
+
 void saveToCSV(const std::vector<double>& failure_mean,
-               const std::vector<double>& failure_variance) {
-    std::ofstream outfile("resultOfManyExperiments.csv", std::ios::out | std::ios::binary);
+               const std::vector<double>& failure_variance)
+{
+
+    const std::string unique_path = getUniqueFilename("D:/ScientWork/SimOfMachFailure/results/resultOfManyExperiments.csv");
+
+    std::ofstream outfile(unique_path, std::ios::out | std::ios::binary);
+    if (!outfile.is_open()) {
+        std::cerr << "Ошибка: не удалось создать файл: " << unique_path << std::endl;
+        return;
+    }
     outfile << "\xEF\xBB\xBF"; // UTF-8 BOM
 
     outfile << "Parameters:\n";
@@ -165,7 +190,9 @@ void saveToCSV(const std::vector<double>& failure_mean,
 
 void readInput(const std::string& filename) {
     std::ifstream infile(filename);
-    if (!infile.is_open()) { /* ... */ }
+    if (!infile.is_open()) {
+        throw std::runtime_error("Input file is not open");
+    }
 
     std::string line;
     int line_count = 0;
@@ -181,7 +208,9 @@ void readInput(const std::string& filename) {
         else if (line_count == 7) iss >> num_experiments;
         line_count++;
     }
-    if (line_count < 8) { throw std::runtime_error("Input file is too small"); }
+    if (line_count < 8) {
+        throw std::runtime_error("Input file is too small");
+    }
 }
 
 int main() {
@@ -207,7 +236,7 @@ int main() {
 
     saveToCSV(failure_mean, failure_variance);
 
-    std::cout << "Симуляция завершена. Данные сохранены в файл resultOfManyExperiments.csv" << std::endl;
+    std::cout << "Симуляция завершена. Данные сохранены в файл resultOfManyExperiments.csv в папке results" << std::endl;
     std::cout << "Время выполнения: " << elapsed_seconds.count() << " секунд." << std::endl;
     return 0;
 }
