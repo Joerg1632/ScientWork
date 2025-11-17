@@ -73,3 +73,4 @@ int main() {
     std::cout << "Симуляция завершена. Данные сохранены в файл results.csv" << std::endl;
     return 0;
 }
+

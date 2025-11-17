@@ -7,90 +7,55 @@
 #include <iomanip>
 #include <windows.h>
 #include <chrono>
-#include <queue>
 #include <filesystem>
 
-double eta_f, eta_r;            // scale for Weibull (for failure)
+double lambda_f,beta_f;         // failure rate 1 - exp^(-lambda * delta_t * cur_N)
 int initial_N;         // Initial number of machines
-double delta_t;        // step in seconds
-int T;                 // total seconds
+double delta_t;        // step in second
+double T;                 // sec, total time = T * delta_t
 int num_experiments;   // Number of experiments
-double beta_f, beta_r;           // shape for Weibull (for failure)
+double nu;             // intensity of recovery
 
 std::default_random_engine generator;
+std::uniform_real_distribution distribution(0.0, 1.0);
 
-struct Machine {
-    bool working = true;
-    double event_time = -1.0;
-};
+double calculateFailureProbability(double t, int cur_N) {
+    return 1 - std::exp(-lambda_f * std::pow(t ,beta_f) * cur_N);
+}
+
+double calculateRecoveryProbability(int cur_N) {
+    return 1 - std::exp(-nu * delta_t * (initial_N - cur_N));
+}
 
 std::vector<int> simulate() {
-    int num_steps = static_cast<int>(T / delta_t);
-    std::vector working_machines(num_steps, 0);
+    int current_N = initial_N;
+    int num_steps = T/delta_t;
+    std::vector working_machines(num_steps, initial_N);
 
-    std::weibull_distribution failure_dist(beta_f, eta_f);
-    std::weibull_distribution repair_dist(beta_r, eta_r);
+    for (int i = 0; i < num_steps; ++i) {
 
-    std::vector<Machine> machines(initial_N);
-    std::priority_queue<std::pair<double, int>, std::vector<std::pair<double, int>>, std::greater<>> events;
+        double R_t = calculateFailureProbability(i * delta_t, current_N);
+        double z_failure = distribution(generator);
 
-    for (int i = 0; i < initial_N; ++i) {
-        double ttf = failure_dist(generator);
-        machines[i].event_time = ttf;
-        events.push({ttf, i});
+        if (z_failure < R_t && current_N > 0) {
+            current_N--;
+        }
+
+        double recovery_t = calculateRecoveryProbability(current_N);
+        double z_recovery = distribution(generator);
+        if (z_recovery < recovery_t && current_N < initial_N) {
+            current_N++;
+        }
+
+        working_machines[i] = current_N;
     }
-
-    double current_time = 0.0;
-    int current_working = initial_N;
-    int step = 0;
-
-    while (!events.empty()) {
-        auto [time, mid] = events.top();
-        events.pop();
-
-        if (time > T)
-            break;
-
-        double next_step_time = step * delta_t;
-        while (step < num_steps && next_step_time < time) {
-            working_machines[step++] = current_working;
-            next_step_time += delta_t;
-        }
-
-        current_time = time;
-        Machine& m = machines[mid];
-        if (std::abs(m.event_time - time) > 1e-9)
-            continue;
-
-        if (m.working)
-        {
-            m.working = false;
-            --current_working;
-
-            double ttr = repair_dist(generator);
-            m.event_time = current_time + ttr;
-            events.push({m.event_time, mid});
-        }
-        else
-        {
-            m.working = true;
-            ++current_working;
-
-            double ttf = failure_dist(generator);
-            m.event_time = current_time + ttf;
-            events.push({m.event_time, mid});
-        }
-    }
-
-    while (step < num_steps)
-        working_machines[step++] = current_working;
 
     return working_machines;
 }
 
 std::vector<double> calculateMean(const std::vector<std::vector<int>>& experiments) {
-    int num_steps = static_cast<int>(T / delta_t);
-    std::vector<double> mean(num_steps, 0.0);
+    int num_steps = T/delta_t;
+    std::vector mean(num_steps, 0.0);
     for (int i = 0; i < num_steps; ++i) {
         double sum = 0.0;
         for (const auto& experiment : experiments) {
@@ -102,7 +67,7 @@ std::vector<double> calculateMean(const std::vector<std::vector<int>>& experimen
 }
 
 std::vector<double> calculateVariance(const std::vector<std::vector<int>>& experiments, const std::vector<double>& mean) {
-    int num_steps = static_cast<int>(T / delta_t);
+    int num_steps = T/delta_t;
     std::vector variance(num_steps, 0.0);
     for (int i = 0; i < num_steps; ++i) {
         double sum = 0.0;
@@ -142,9 +107,7 @@ std::string getUniqueFilename(const std::string& base_path) {
 }
 
 void saveToCSV(const std::vector<double>& failure_mean,
-               const std::vector<double>& failure_variance)
-{
-
+               const std::vector<double>& failure_variance) {
     const std::string unique_path = getUniqueFilename("D:/ScientWork/SimOfMachFailure/results/resultOfManyExperiments.csv");
 
     std::ofstream outfile(unique_path, std::ios::out | std::ios::binary);
@@ -155,25 +118,23 @@ void saveToCSV(const std::vector<double>& failure_mean,
     outfile << "\xEF\xBB\xBF"; // UTF-8 BOM
 
     outfile << "Parameters:\n";
-    outfile << "EtaF;" << eta_f << "\n";
-    outfile << "BetaF;" << beta_f << "\n";
-    outfile << "EtaR;" << eta_r << "\n";
-    outfile << "BetaR;" << beta_r << "\n";
+    outfile << "Lambda_f;" << lambda_f << "\n";
+    outfile << "Beta_f;" << beta_f << "\n";
     outfile << "Initial N;" << initial_N << "\n";
     outfile << "Delta t;" << delta_t << "\n";
-    outfile << "T (seconds);" << T << "\n";
-    outfile << "Number of experiments;" << num_experiments << "\n\n";
+    outfile << "T (time steps);" << T << "\n";
+    outfile << "Number of experiments;" << num_experiments << "\n";
+    outfile << "Nu;" << nu << "\n\n";
 
     outfile << "Time;FailureMean;FailureMean+Sqrt(Var);\n";
 
-    int num_steps = static_cast<int>(T / delta_t);
-    int step_interval = 100;
+    const int num_steps = T/delta_t;
 
     for (int i = 0; i < num_steps; ++i) {
-        if(i %step_interval == 0) {
-            double time_in_hours = (i * delta_t) / 3600.0;
+        if(int step_interval = 100; i %step_interval == 0) {
+            double time_in_hours = (i * delta_t) / 3.6;
             if (std::fmod(time_in_hours, 0.5) == 0){
-                outfile << formatNumber(i * delta_t/3600) << ";"
+                outfile << formatNumber(i * delta_t / 3.6) << ";"
                 << formatNumber(initial_N - failure_mean[i]) << ";"
                 << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";\n";
             }
@@ -191,35 +152,46 @@ void saveToCSV(const std::vector<double>& failure_mean,
 void readInput(const std::string& filename) {
     std::ifstream infile(filename);
     if (!infile.is_open()) {
-        throw std::runtime_error("Input file is not open");
+        std::cerr << "Ошибка: не удалось открыть файл " << filename << std::endl;
+        exit(EXIT_FAILURE);
     }
 
     std::string line;
     int line_count = 0;
+
     while (std::getline(infile, line)) {
         std::istringstream iss(line);
-        if (line_count == 0) iss >> eta_f;
-        else if (line_count == 1) iss >> beta_f;
-        else if (line_count == 2) iss >> eta_r;
-        else if (line_count == 3) iss >> beta_r;
-        else if (line_count == 4) iss >> initial_N;
-        else if (line_count == 5) iss >> delta_t;
-        else if (line_count == 6) iss >> T;
-        else if (line_count == 7) iss >> num_experiments;
+        if (line_count == 0) iss >> lambda_f;
+        if (line_count == 1) iss >> beta_f;
+        else if (line_count == 2) iss >> initial_N;
+        else if (line_count == 3) iss >> delta_t;
+        else if (line_count == 4) iss >> T;
+        else if (line_count == 5) iss >> num_experiments;
+        else if (line_count == 6) iss >> nu;
+
+        if (iss.fail()) {
+            std::cerr << "Ошибка: не удалось считать параметр из строки: " << line << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
         line_count++;
     }
-    if (line_count < 8) {
-        throw std::runtime_error("Input file is too small");
+
+    if (line_count < 6) {
+        std::cerr << "Ошибка: недостаточно параметров в файле. Ожидалось 6, считано " << line_count << std::endl;
+        exit(EXIT_FAILURE);
     }
+
+    infile.close();
 }
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     setlocale(LC_ALL, "ru_RU.UTF-8");
 
-    const auto start_time = std::chrono::high_resolution_clock::now();
+    auto start_time = std::chrono::high_resolution_clock::now();
 
-    readInput("D:/ScientWork/SimOfMachFailure/configWeibul.txt");
+    readInput("D:/ScientWork/SimOfMachFailure/config/configWeibul.txt");
 
     std::vector<std::vector<int>> experiments;
     std::vector<int> working_machines;
@@ -228,15 +200,16 @@ int main() {
         working_machines = simulate();
         experiments.push_back(working_machines);
     }
-    const auto end_time = std::chrono::high_resolution_clock::now();
-    const std::chrono::duration<double> elapsed_seconds = end_time - start_time;
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end_time - start_time;
 
-    const std::vector<double> failure_mean = calculateMean(experiments);
-    const std::vector<double> failure_variance = calculateVariance(experiments, failure_mean);
+    std::vector<double> failure_mean = calculateMean(experiments);
+    std::vector<double> variance_mean = calculateVariance(experiments, failure_mean);
 
-    saveToCSV(failure_mean, failure_variance);
+    saveToCSV(failure_mean,variance_mean);
 
     std::cout << "Симуляция завершена. Данные сохранены в файл resultOfManyExperiments.csv в папке results" << std::endl;
     std::cout << "Время выполнения: " << elapsed_seconds.count() << " секунд." << std::endl;
     return 0;
 }
+

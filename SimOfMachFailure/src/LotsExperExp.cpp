@@ -12,7 +12,7 @@
 double lambda;         // failure rate 1 - exp^(-lambda * delta_t * cur_N)
 int initial_N;         // Initial number of machines
 double delta_t;        // step in second
-int T;                 // sec, total time = T * delta_t
+double T;                 // sec, total time = T * delta_t
 int num_experiments;   // Number of experiments
 double nu;             // intensity of recovery
 
@@ -221,7 +221,7 @@ int main() {
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
-    readInput("D:/ScientWork/SimOfMachFailure/configExp.txt");
+    readInput("D:/ScientWork/SimOfMachFailure/config/configExp.txt");
 
     std::vector<std::vector<int>> experiments;
     std::vector<int> working_machines;
@@ -244,5 +244,4 @@ int main() {
     std::cout << "Время выполнения: " << elapsed_seconds.count() << " секунд." << std::endl;
     return 0;
 }
-
 

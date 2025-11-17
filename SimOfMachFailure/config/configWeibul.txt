@@ -1,8 +1,7 @@
-20580     # eta_f (scale failure)
-1.5       # beta_f (shape failure)
-100       # eta_r (scale recovery)
-1.2       # beta_r (shape recovery)
-10000     # initial_N
-0.1       # delta_t
-25200     # T
-1000      # num_experiments
+0.0000001         # lambda_f        → MTTF ≈ 1273 сек при beta=0.78
+0.78        # beta_f       → ранние отказы (по желанию)
+10000       # initial_N
+0.001         # delta_t
+25.2       # T
+1000        # num_experiments
+1           #nu

@@ -62,18 +62,18 @@ std::vector<int> simulate() {
         {
             m.working = false;
             --current_working;
-            double ttr = repair_dist(generator);
-            m.event_time = current_time + ttr;
-            events.push({m.event_time, mid});
+            // double ttr = repair_dist(generator);
+            // m.event_time = current_time + ttr;
+            // events.push({m.event_time, mid});
         }
-        else
-        {
-            m.working = true;
-            ++current_working;
-            double ttf = failure_dist(generator);
-            m.event_time = current_time + ttf;
-            events.push({m.event_time, mid});
-        }
+        // else
+        // {
+        //     m.working = true;
+        //     ++current_working;
+        //     double ttf = failure_dist(generator);
+        //     m.event_time = current_time + ttf;
+        //     events.push({m.event_time, mid});
+        // }
     }
 
     while (step < num_steps)
@@ -154,7 +154,7 @@ void saveToCSV(const std::vector<double>& failure_mean,
     outfile << "sigma_r;" << sigma_r << "\n";
     outfile << "Initial N;" << initial_N << "\n";
     outfile << "Delta t;" << delta_t << "\n";
-    outfile << "T (seconds);" << T << "\n";
+    outfile << "T (hours);" << T / 3600 << "\n";
     outfile << "Number of experiments;" << num_experiments << "\n\n";
 
     outfile << "Time;FailureMean;FailureMean+Sqrt(Var);\n";

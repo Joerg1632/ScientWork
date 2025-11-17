@@ -2,5 +2,5 @@
 10000       # initial_N
 0.001       # delta_t
 25.2      # T (sec/1000)
-100    # num_experiments
-1      # nu
+100   # num_experiments
+1     # nu

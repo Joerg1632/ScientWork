@@ -5,4 +5,4 @@
 10000      # N
 0.1        # delta_t
 25200      # T
-100        # experiments
+1000        # experiments

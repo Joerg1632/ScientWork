@@ -1,8 +1,8 @@
-# 0 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
+# 0 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
 # 1 "D:\\ScientWork\\SimOfMachFailure\\cmake-build-debug//"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
+# 1 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 3
        
@@ -41159,7 +41159,7 @@ namespace std
 # 85 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iostream" 3
 
 }
-# 2 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 2 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 1 3
 # 32 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 3
        
@@ -66839,13 +66839,13 @@ namespace __detail
 
 }
 # 51 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/random" 2 3
-# 3 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 3 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 1 3
 # 39 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 3
        
 # 40 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cmath" 3
-# 5 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 5 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 3
        
@@ -69557,7 +69557,7 @@ namespace std
 
 }
 # 1361 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/fstream" 2 3
-# 6 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 6 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 1 3
 # 58 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 3
        
@@ -79723,7 +79723,7 @@ lexicographical_compare(_ExecutionPolicy&& __exec, _ForwardIterator1 __first1, _
 
 }
 # 86 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm" 2 3
-# 7 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 7 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip" 1 3
 # 36 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/iomanip" 3
        
@@ -85206,7 +85206,7 @@ namespace std
 
 
 }
-# 8 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 8 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 1 3
 # 9 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 3
 # 1 "D:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
@@ -175146,7 +175146,7 @@ extern "C" {
 # 509 "D:/mingw64/x86_64-w64-mingw32/include/imm.h" 3
 }
 # 131 "D:/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
-# 9 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 9 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 1 3
 # 33 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 3
        
@@ -199354,7 +199354,7 @@ namespace __detail
 
 }
 # 3361 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/chrono" 2 3
-# 10 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 10 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 # 1 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/filesystem" 1 3
 # 33 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/filesystem" 3
        
@@ -201954,11 +201954,11 @@ namespace filesystem
 
 }
 # 55 "D:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/filesystem" 2 3
-# 11 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 2
+# 11 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 2
 
 
-# 12 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
-double lambda_f,beta_f;
+# 12 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
+double lambda;
 int initial_N;
 double delta_t;
 double T;
@@ -201968,12 +201968,37 @@ double nu;
 std::default_random_engine generator;
 std::uniform_real_distribution distribution(0.0, 1.0);
 
-double calculateFailureProbability(double t, int cur_N) {
-    return 1 - std::exp(-lambda_f * std::pow(t ,beta_f) * cur_N);
+double calculateFailureProbability(int cur_N) {
+    return 1 - std::exp(-lambda * delta_t * cur_N);
 }
 
 double calculateRecoveryProbability(int cur_N) {
     return 1 - std::exp(-nu * delta_t * (initial_N - cur_N));
+}
+
+std::vector<double> calculateAnalyticalM() {
+    int num_steps = T/delta_t;
+    std::vector analytical_mean(num_steps, 0.0);
+    for (int t = 0; t < num_steps; ++t) {
+        double time = t * delta_t;
+        double coeff1 = (lambda * initial_N) / (lambda + nu);
+        double coeff2 = (0 * nu - (initial_N - 0) * lambda) / (lambda + nu);
+        analytical_mean[t] = coeff1 + coeff2 * std::exp(-(lambda + nu) * time);
+    }
+    return analytical_mean;
+}
+
+std::vector<double> calculateAnalyticalD() {
+    int num_steps = T/delta_t;
+    std::vector analytical_variance(num_steps, 0.0);
+    for (int t = 0; t < num_steps; ++t) {
+        double coeff1 = (initial_N * lambda * nu) / std::pow(lambda + nu, 2);
+        double coeff2 = std::pow(lambda,2)*(initial_N - 0) + nu * (0 * nu -lambda * initial_N) / std::pow(lambda + nu, 2);
+        double coeff3 = std::pow(lambda,2)*(initial_N - 0) + 0 * pow(nu,2) / std::pow(lambda + nu, 2);
+        analytical_variance[t] = coeff1 + coeff2 * std::exp(-(lambda + nu) * t)
+                                 - coeff3 * std::exp(-2 * (lambda + nu) * t);
+    }
+    return analytical_variance;
 }
 
 std::vector<int> simulate() {
@@ -201983,7 +202008,7 @@ std::vector<int> simulate() {
 
     for (int i = 0; i < num_steps; ++i) {
 
-        double R_t = calculateFailureProbability(i * delta_t, current_N);
+        double R_t = calculateFailureProbability(current_N);
         double z_failure = distribution(generator);
 
         if (z_failure < R_t && current_N > 0) {
@@ -202056,7 +202081,9 @@ std::string getUniqueFilename(const std::string& base_path) {
 }
 
 void saveToCSV(const std::vector<double>& failure_mean,
-               const std::vector<double>& failure_variance) {
+               const std::vector<double>& failure_variance,
+               const std::vector<double>& analiticalMean,
+               const std::vector<double>& analiticalVar) {
     const std::string unique_path = getUniqueFilename("D:/ScientWork/SimOfMachFailure/results/resultOfManyExperiments.csv");
 
     std::ofstream outfile(unique_path, std::ios::out | std::ios::binary);
@@ -202067,15 +202094,15 @@ void saveToCSV(const std::vector<double>& failure_mean,
     outfile << "\xEF\xBB\xBF";
 
     outfile << "Parameters:\n";
-    outfile << "Lambda_f;" << lambda_f << "\n";
-    outfile << "Beta_f;" << beta_f << "\n";
+    outfile << "Lambda;" << lambda << "\n";
     outfile << "Initial N;" << initial_N << "\n";
     outfile << "Delta t;" << delta_t << "\n";
     outfile << "T (time steps);" << T << "\n";
     outfile << "Number of experiments;" << num_experiments << "\n";
     outfile << "Nu;" << nu << "\n\n";
 
-    outfile << "Time;FailureMean;FailureMean+Sqrt(Var);\n";
+    outfile << "Time;FailureMean;FailureMean+Sqrt(Var);"
+               "AnalyticalMean;AnalyticalMean+sqrt(Var);\n";
 
     const int num_steps = T/delta_t;
 
@@ -202085,12 +202112,16 @@ void saveToCSV(const std::vector<double>& failure_mean,
             if (std::fmod(time_in_hours, 0.5) == 0){
                 outfile << formatNumber(i * delta_t / 3.6) << ";"
                 << formatNumber(initial_N - failure_mean[i]) << ";"
-                << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";\n";
+                << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
+                << formatNumber(analiticalMean[i]) << ";"
+                << formatNumber(analiticalMean[i] + std::sqrt(analiticalVar[i])) << ";\n";
             }
             else {
                 outfile << ";"
                 << formatNumber(initial_N - failure_mean[i]) << ";"
-                << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";\n";
+                << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
+                << formatNumber(analiticalMean[i]) << ";"
+                << formatNumber(analiticalMean[i] + std::sqrt(analiticalVar[i])) << ";\n";
             }
         }
     }
@@ -202103,9 +202134,9 @@ void readInput(const std::string& filename) {
     if (!infile.is_open()) {
         std::cerr << "Ошибка: не удалось открыть файл " << filename << std::endl;
         exit(
-# 156 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 3
+# 187 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 3
             1
-# 156 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
+# 187 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
                         );
     }
 
@@ -202114,20 +202145,19 @@ void readInput(const std::string& filename) {
 
     while (std::getline(infile, line)) {
         std::istringstream iss(line);
-        if (line_count == 0) iss >> lambda_f;
-        if (line_count == 1) iss >> beta_f;
-        else if (line_count == 2) iss >> initial_N;
-        else if (line_count == 3) iss >> delta_t;
-        else if (line_count == 4) iss >> T;
-        else if (line_count == 5) iss >> num_experiments;
-        else if (line_count == 6) iss >> nu;
+        if (line_count == 0) iss >> lambda;
+        else if (line_count == 1) iss >> initial_N;
+        else if (line_count == 2) iss >> delta_t;
+        else if (line_count == 3) iss >> T;
+        else if (line_count == 4) iss >> num_experiments;
+        else if (line_count == 5) iss >> nu;
 
         if (iss.fail()) {
             std::cerr << "Ошибка: не удалось считать параметр из строки: " << line << std::endl;
             exit(
-# 174 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 3
+# 204 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 3
                 1
-# 174 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
+# 204 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
                             );
         }
 
@@ -202137,9 +202167,9 @@ void readInput(const std::string& filename) {
     if (line_count < 6) {
         std::cerr << "Ошибка: недостаточно параметров в файле. Ожидалось 6, считано " << line_count << std::endl;
         exit(
-# 182 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 3
+# 212 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 3
             1
-# 182 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
+# 212 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
                         );
     }
 
@@ -202148,19 +202178,19 @@ void readInput(const std::string& filename) {
 
 int main() {
     SetConsoleOutputCP(
-# 189 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 3
+# 219 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 3
                       65001
-# 189 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
+# 219 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
                              );
     setlocale(
-# 190 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp" 3
+# 220 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp" 3
              0
-# 190 "D:/ScientWork/SimOfMachFailure/src/LotsExperVeibula.cpp"
+# 220 "D:/ScientWork/SimOfMachFailure/src/LotsExperExp.cpp"
                    , "ru_RU.UTF-8");
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
-    readInput("D:/ScientWork/SimOfMachFailure/config/configWeibul.txt");
+    readInput("D:/ScientWork/SimOfMachFailure/config/configExp.txt");
 
     std::vector<std::vector<int>> experiments;
     std::vector<int> working_machines;
@@ -202174,8 +202204,10 @@ int main() {
 
     std::vector<double> failure_mean = calculateMean(experiments);
     std::vector<double> variance_mean = calculateVariance(experiments, failure_mean);
+    std::vector<double> analitical_mean = calculateAnalyticalM();
+    std::vector<double> analitical_var = calculateAnalyticalD();
 
-    saveToCSV(failure_mean,variance_mean);
+    saveToCSV(failure_mean,variance_mean,analitical_mean, analitical_var);
 
     std::cout << "Симуляция завершена. Данные сохранены в файл resultOfManyExperiments.csv в папке results" << std::endl;
     std::cout << "Время выполнения: " << elapsed_seconds.count() << " секунд." << std::endl;
