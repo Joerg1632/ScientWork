@@ -181,22 +181,37 @@ build LotsExperimentsLogNormal.exe: CXX_EXECUTABLE_LINKER__LotsExperimentsLogNor
 
 build cmake_object_order_depends_target_LotsExperimentsParallel: phony || .
 
-build CMakeFiles/LotsExperimentsParallel.dir/src/LotsExperParallel.cpp.obj.ddi: CXX_SCAN__LotsExperimentsParallel_Debug D$:/ScientWork/SimOfMachFailure/src/LotsExperParallel.cpp || cmake_object_order_depends_target_LotsExperimentsParallel
-  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\src\LotsExperParallel.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperimentsParallel.dir\src\LotsExperParallel.cpp.obj.ddi
+build CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelMPI.cpp.obj.ddi: CXX_SCAN__LotsExperimentsParallel_Debug D$:/ScientWork/SimOfMachFailure/parallelVersion/LotsWeibulParallelMPI.cpp || cmake_object_order_depends_target_LotsExperimentsParallel
+  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelMPI.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelMPI.cpp.obj.ddi
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJ_FILE = CMakeFiles\LotsExperimentsParallel.dir\src\LotsExperParallel.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperimentsParallel.dir\src\LotsExperParallel.cpp.obj.ddi.i
+  OBJ_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelMPI.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelMPI.cpp.obj.ddi.i
 
-build CMakeFiles/LotsExperimentsParallel.dir/src/LotsExperParallel.cpp.obj: CXX_COMPILER__LotsExperimentsParallel_scanned_Debug D$:/ScientWork/SimOfMachFailure/src/LotsExperParallel.cpp | CMakeFiles/LotsExperimentsParallel.dir/src/LotsExperParallel.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperimentsParallel CMakeFiles/LotsExperimentsParallel.dir/CXX.dd
-  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\src\LotsExperParallel.cpp.obj.d
-  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperimentsParallel.dir\src\LotsExperParallel.cpp.obj.modmap
+build CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelMPI.cpp.obj: CXX_COMPILER__LotsExperimentsParallel_scanned_Debug D$:/ScientWork/SimOfMachFailure/parallelVersion/LotsWeibulParallelMPI.cpp | CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelMPI.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperimentsParallel CMakeFiles/LotsExperimentsParallel.dir/CXX.dd
+  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelMPI.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelMPI.cpp.obj.modmap
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\LotsExperimentsParallel.dir
-  OBJECT_FILE_DIR = CMakeFiles\LotsExperimentsParallel.dir\src
+  OBJECT_FILE_DIR = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion
   dyndep = CMakeFiles/LotsExperimentsParallel.dir/CXX.dd
 
-build CMakeFiles/LotsExperimentsParallel.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir/CXXModules.json CMakeFiles/LotsExperimentsParallel.dir/src/LotsExperParallel.cpp.obj.modmap: CXX_DYNDEP__LotsExperimentsParallel_Debug CMakeFiles/LotsExperimentsParallel.dir/src/LotsExperParallel.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir/CXXDependInfo.json
+build CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelOpenMP.cpp.obj.ddi: CXX_SCAN__LotsExperimentsParallel_Debug D$:/ScientWork/SimOfMachFailure/parallelVersion/LotsWeibulParallelOpenMP.cpp || cmake_object_order_depends_target_LotsExperimentsParallel
+  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelOpenMP.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelOpenMP.cpp.obj.ddi
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJ_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelOpenMP.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelOpenMP.cpp.obj.ddi.i
+
+build CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelOpenMP.cpp.obj: CXX_COMPILER__LotsExperimentsParallel_scanned_Debug D$:/ScientWork/SimOfMachFailure/parallelVersion/LotsWeibulParallelOpenMP.cpp | CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelOpenMP.cpp.obj.modmap || cmake_object_order_depends_target_LotsExperimentsParallel CMakeFiles/LotsExperimentsParallel.dir/CXX.dd
+  DEP_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelOpenMP.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion\LotsWeibulParallelOpenMP.cpp.obj.modmap
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LotsExperimentsParallel.dir
+  OBJECT_FILE_DIR = CMakeFiles\LotsExperimentsParallel.dir\parallelVersion
+  dyndep = CMakeFiles/LotsExperimentsParallel.dir/CXX.dd
+
+build CMakeFiles/LotsExperimentsParallel.dir/CXX.dd | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir/CXXModules.json CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelMPI.cpp.obj.modmap CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelOpenMP.cpp.obj.modmap: CXX_DYNDEP__LotsExperimentsParallel_Debug CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelMPI.cpp.obj.ddi CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelOpenMP.cpp.obj.ddi | D$:/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir/CXXDependInfo.json
 
 
 # =============================================================================
@@ -206,7 +221,7 @@ build CMakeFiles/LotsExperimentsParallel.dir/CXX.dd | D$:/ScientWork/SimOfMachFa
 #############################################
 # Link the executable LotsExperimentsParallel.exe
 
-build LotsExperimentsParallel.exe: CXX_EXECUTABLE_LINKER__LotsExperimentsParallel_Debug CMakeFiles/LotsExperimentsParallel.dir/src/LotsExperParallel.cpp.obj
+build LotsExperimentsParallel.exe: CXX_EXECUTABLE_LINKER__LotsExperimentsParallel_Debug CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelMPI.cpp.obj CMakeFiles/LotsExperimentsParallel.dir/parallelVersion/LotsWeibulParallelOpenMP.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\LotsExperimentsParallel.dir

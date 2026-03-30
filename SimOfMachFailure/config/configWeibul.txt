@@ -1,7 +1,8 @@
-0.0000001         # lambda_f        → MTTF ≈ 1273 сек при beta=0.78
-0.78        # beta_f       → ранние отказы (по желанию)
+0.001154        # lambda_f
+0.78      # beta_f
 10000       # initial_N
 0.001         # delta_t
 25.2       # T
-1000        # num_experiments
-1           #nu
+1000       # num_experiments
+1        # lambda_r
+1      # beta_r

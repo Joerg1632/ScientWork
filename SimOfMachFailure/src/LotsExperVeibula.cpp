@@ -10,6 +10,7 @@
 #include <filesystem>
 
 double lambda_f,beta_f;         // failure rate 1 - exp^(-lambda * delta_t * cur_N)
+double lambda_r,beta_r;
 int initial_N;         // Initial number of machines
 double delta_t;        // step in second
 double T;                 // sec, total time = T * delta_t
@@ -20,11 +21,13 @@ std::default_random_engine generator;
 std::uniform_real_distribution distribution(0.0, 1.0);
 
 double calculateFailureProbability(double t, int cur_N) {
-    return 1 - std::exp(-lambda_f * std::pow(t ,beta_f) * cur_N);
+    double delta = std::pow(t + delta_t, beta_f) - std::pow(t, beta_f);
+    return 1.0 - std::exp(-lambda_f * delta * cur_N);
 }
 
-double calculateRecoveryProbability(int cur_N) {
-    return 1 - std::exp(-nu * delta_t * (initial_N - cur_N));
+double calculateRecoveryProbability(double t, int cur_N) {
+    double delta = std::pow(t + delta_t, beta_r) - std::pow(t, beta_r);
+    return 1.0 - std::exp(-lambda_r * delta * (initial_N - cur_N));
 }
 
 std::vector<int> simulate() {
@@ -41,7 +44,7 @@ std::vector<int> simulate() {
             current_N--;
         }
 
-        double recovery_t = calculateRecoveryProbability(current_N);
+        double recovery_t = calculateRecoveryProbability(i* delta_t, current_N);
         double z_recovery = distribution(generator);
         if (z_recovery < recovery_t && current_N < initial_N) {
             current_N++;
@@ -167,7 +170,8 @@ void readInput(const std::string& filename) {
         else if (line_count == 3) iss >> delta_t;
         else if (line_count == 4) iss >> T;
         else if (line_count == 5) iss >> num_experiments;
-        else if (line_count == 6) iss >> nu;
+        else if (line_count == 6) iss >> lambda_r;
+        else if (line_count == 7) iss >> beta_r;
 
         if (iss.fail()) {
             std::cerr << "Ошибка: не удалось считать параметр из строки: " << line << std::endl;

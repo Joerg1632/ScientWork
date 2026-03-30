@@ -5,7 +5,7 @@ Initial N;10000
 Delta t;0.001
 T (time steps);25.2
 Number of experiments;1000
-Nu;1
+Nu;0
 
 Time;FailureMean;FailureMean+Sqrt(Var);
 0,00;0,06;0,28;

@@ -8,47 +8,23 @@
 #include <sstream>
 #include <algorithm>
 
-double lambda;
-int initial_N;
-double delta_t;
-int T;
-int num_experiments;
-double nu;
+double lambda,beta_f;         // failure rate 1 - exp^(-lambda * delta_t * cur_N)
+int initial_N;         // Initial number of machines
+double delta_t;        // step in second
+double T;                 // sec, total time = T * delta_t
+int num_experiments;   // Number of experiments
+double nu;             // intensity of recovery
 
 std::default_random_engine generator;
 std::uniform_real_distribution distribution(0.0, 1.0);
 
-double calculateFailureProbability(int cur_N) {
-    return 1 - std::exp(-lambda * delta_t * cur_N);
+double calculateFailureProbability(double t, int cur_N) {
+    double delta = std::pow(t + delta_t, beta_f) - std::pow(t, beta_f);
+    return 1.0 - std::exp(-lambda * delta * cur_N);
 }
 
 double calculateRecoveryProbability(int cur_N) {
     return 1 - std::exp(-nu * delta_t * (initial_N - cur_N));
-}
-
-std::vector<double> calculateAnalyticalM() {
-    int num_steps = T / delta_t;
-    std::vector analytical_mean(num_steps, 0.0);
-    for (int t = 0; t < num_steps; ++t) {
-        double time = t * delta_t;
-        double coeff1 = (lambda * initial_N) / (lambda + nu);
-        double coeff2 = (0 * nu - (initial_N - 0) * lambda) / (lambda + nu);
-        analytical_mean[t] = coeff1 + coeff2 * std::exp(-(lambda + nu) * time);
-    }
-    return analytical_mean;
-}
-
-std::vector<double> calculateAnalyticalD() {
-    int num_steps = T / delta_t;
-    std::vector<double> analytical_variance(num_steps, 0.0);
-    for (int t = 0; t < num_steps; ++t) {
-        double coeff1 = (initial_N * lambda * nu) / std::pow(lambda + nu, 2);
-        double coeff2 = std::pow(lambda, 2) * (initial_N - 0) + nu * (0 * nu - lambda * initial_N) / std::pow(lambda + nu, 2);
-        double coeff3 = std::pow(lambda, 2) * (initial_N - 0) + 0 * std::pow(nu, 2) / std::pow(lambda + nu, 2);
-        analytical_variance[t] = coeff1 + coeff2 * std::exp(-(lambda + nu) * t)
-                                 - coeff3 * std::exp(-2 * (lambda + nu) * t);
-    }
-    return analytical_variance;
 }
 
 std::vector<int> simulate() {
@@ -57,7 +33,7 @@ std::vector<int> simulate() {
     std::vector<int> working_machines(num_steps, initial_N);
 
     for (int i = 0; i < num_steps; ++i) {
-        if (distribution(generator) < calculateFailureProbability(current_N) && current_N > 0) {
+        if (distribution(generator) < calculateFailureProbability(i * delta_t, current_N) && current_N > 0) {
             current_N--;
         }
         if (distribution(generator) < calculateRecoveryProbability(current_N) && current_N < initial_N) {
@@ -81,11 +57,12 @@ void readInput(const std::string& filename) {
     while (std::getline(infile, line)) {
         std::istringstream iss(line);
         if (line_count == 0) iss >> lambda;
-        else if (line_count == 1) iss >> initial_N;
-        else if (line_count == 2) iss >> delta_t;
-        else if (line_count == 3) iss >> T;
-        else if (line_count == 4) iss >> num_experiments;
-        else if (line_count == 5) iss >> nu;
+        if (line_count == 1) iss >> beta_f;
+        else if (line_count == 2) iss >> initial_N;
+        else if (line_count == 3) iss >> delta_t;
+        else if (line_count == 4) iss >> T;
+        else if (line_count == 5) iss >> num_experiments;
+        else if (line_count == 6) iss >> nu;
 
         if (iss.fail()) {
             std::cerr << "Ошибка: не удалось считать параметр из строки: " << line << std::endl;
@@ -112,9 +89,7 @@ std::string formatNumber(double number) {
 }
 
 void saveToCSV(std::vector<double>& failure_mean,
-               std::vector<double>& failure_variance,
-               const std::vector<double>& analiticalMean,
-               const std::vector<double>& analiticalVar, int size) {
+               std::vector<double>& failure_variance,int size) {
     std::ostringstream filename;
     filename << "resultOfParallelExperiments_" << size << "Threads.csv";
 
@@ -122,15 +97,15 @@ void saveToCSV(std::vector<double>& failure_mean,
     outfile << "\xEF\xBB\xBF"; // UTF-8 BOM
 
     outfile << "Parameters:\n";
-    outfile << "Lambda;" << lambda << "\n";
+    outfile << "Lambda_f;" << lambda << "\n";
+    outfile << "Beta_f;" << beta_f << "\n";
     outfile << "Initial N;" << initial_N << "\n";
     outfile << "Delta t;" << delta_t << "\n";
     outfile << "T (time steps);" << T << "\n";
     outfile << "Number of experiments;" << num_experiments << "\n";
     outfile << "Nu;" << nu << "\n\n";
 
-    outfile << "Time;FailureMean;FailureMean+Sqrt(Var);"
-           "AnalyticalMean;AnalyticalMean+sqrt(Var);\n";
+    outfile << "Time;FailureMean;FailureMean+Sqrt(Var);\n";
 
     int num_steps = T / delta_t;
     int step_interval = 100;
@@ -143,15 +118,11 @@ void saveToCSV(std::vector<double>& failure_mean,
             if (std::fmod(time_in_hours, 0.5) == 0) {
                 outfile << formatNumber(i * delta_t / 3.6) << ";"
                         << formatNumber(initial_N - failure_mean[i]) << ";"
-                        << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
-                        << formatNumber(analiticalMean[i]) << ";"
-                        << formatNumber(analiticalMean[i] + std::sqrt(analiticalVar[i])) << ";\n";
+                        << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";\n";
             } else {
                 outfile << ";"
                         << formatNumber(initial_N - failure_mean[i]) << ";"
-                        << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
-                        << formatNumber(analiticalMean[i]) << ";"
-                        << formatNumber(analiticalMean[i] + std::sqrt(analiticalVar[i])) << ";\n";
+                        << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";\n";
             }
         }
     }
@@ -167,16 +138,17 @@ int main(int argc, char** argv) {
     double start_time = 0;
 
     if (rank == 0) {
-        readInput("/mnt/d/ScientWork/SimOfMachFailure/configExp.txt");
+        readInput("/mnt/d/ScientWork/SimOfMachFailure/config/configWeibul.txt");
         start_time = MPI_Wtime();
     }
 
     MPI_Bcast(&lambda, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
     MPI_Bcast(&initial_N, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&delta_t, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&T, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&T, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
     MPI_Bcast(&num_experiments, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&nu, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&beta_f, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
     int num_steps = T / delta_t;
     int experiments_per_process = num_experiments / size;
@@ -222,9 +194,7 @@ int main(int argc, char** argv) {
 
     if (rank == 0) {
         const double end_time = MPI_Wtime();
-        std::vector<double> analitical_mean = calculateAnalyticalM();
-        std::vector<double> analitical_var = calculateAnalyticalD();
-        saveToCSV(global_mean, global_variance, analitical_mean, analitical_var, size);
+        saveToCSV(global_mean, global_variance, size);
         std::cout << "Время выполнения: " <<end_time - start_time <<" секунд."<< "\n";
     }
 
