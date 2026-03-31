@@ -43,7 +43,6 @@ std::string formatNumber(double number) {
     return result;
 }
 
-
 void saveToCSV(const std::vector<int>& working_machines) {
     std::ofstream outfile("resultsOfOneExperiment.csv", std::ios::out | std::ios::binary);
     outfile << "\xEF\xBB\xBF";
@@ -59,8 +58,6 @@ void saveToCSV(const std::vector<int>& working_machines) {
     outfile.close();
 }
 
-
-
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     setlocale(LC_ALL, "ru_RU.UTF-8");
@@ -73,4 +70,3 @@ int main() {
     std::cout << "Симуляция завершена. Данные сохранены в файл results.csv" << std::endl;
     return 0;
 }
-

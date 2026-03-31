@@ -9,12 +9,12 @@
 #include <chrono>
 #include <filesystem>
 
-double lambda;         // failure rate 1 - exp^(-lambda * delta_t * cur_N)
-int initial_N;         // Initial number of machines
-double delta_t;        // step in second
-double T;                 // sec, total time = T * delta_t
-int num_experiments;   // Number of experiments
-double nu;             // intensity of recovery
+double lambda;
+int initial_N;
+double delta_t;
+double T;
+int num_experiments;
+double nu;
 
 std::default_random_engine generator;
 std::uniform_real_distribution distribution(0.0, 1.0);
@@ -244,4 +244,3 @@ int main() {
     std::cout << "Время выполнения: " << elapsed_seconds.count() << " секунд." << std::endl;
     return 0;
 }
-
