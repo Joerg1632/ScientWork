@@ -1,5 +1,7 @@
 .idea/
 cmake-build-*/
+results/
+build/
 *.csv
 *.log
 *.tmp
