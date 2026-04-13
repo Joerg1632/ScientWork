@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
     double start_time = 0;
 
     if (rank == 0) {
-        readInput("/mnt/d/ScientWork/SimOfMachFailure/config/configWeibul.txt");
+        readInput("/mnt/d/ScientWork/SimOfMachFailure/config/configWeibull.txt");
         start_time = MPI_Wtime();
     }
 

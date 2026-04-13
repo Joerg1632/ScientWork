@@ -1,8 +1,0 @@
-0.73       # k_failure
-0.001281   # lambda_failure
-0.73       # k_recovery
-1.2807     # lambda_recovery
-10000      # initial_N
-0.001      # delta_t
-150        # T
-100        # num_experiments

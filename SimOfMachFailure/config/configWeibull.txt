@@ -1,0 +1,9 @@
+0.001      # lambda
+0.000979   # lambda_w
+0.73       # delta_shape
+1.0        # nu
+1.0        # nu_w
+10000      # initial_N
+0.001      # delta_t
+150        # T
+10000      # num_experiments

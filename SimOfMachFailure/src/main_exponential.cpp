@@ -53,6 +53,7 @@ std::vector<double> calculateAnalyticalD() {
 }
 
 std::vector<int> simulate() {
+
     int current_N = initial_N;
     int num_steps = T/delta_t;
     std::vector working_machines(num_steps, initial_N);
@@ -135,14 +136,14 @@ void saveToCSV(const std::vector<double>& failure_mean,
                const std::vector<double>& failure_variance,
                const std::vector<double>& analiticalMean,
                const std::vector<double>& analiticalVar) {
-    const std::string unique_path = getUniqueFilename("D:/ScientWork/SimOfMachFailure/results/resultOfManyExperiments.csv");
+    const std::string unique_path = getUniqueFilename("SimOfMachFailure/results/resultOfManyExperiments.csv");
 
     std::ofstream outfile(unique_path, std::ios::out | std::ios::binary);
     if (!outfile.is_open()) {
         std::cerr << "Ошибка: не удалось создать файл: " << unique_path << std::endl;
         return;
     }
-    outfile << "\xEF\xBB\xBF"; // UTF-8 BOM
+    outfile << "\xEF\xBB\xBF";
 
     outfile << "Parameters:\n";
     outfile << "Lambda;" << lambda << "\n";
@@ -158,7 +159,7 @@ void saveToCSV(const std::vector<double>& failure_mean,
     const int num_steps = T/delta_t;
 
     for (int i = 0; i < num_steps; ++i) {
-        if(int step_interval = 100; i %step_interval == 0) {
+        if (int step_interval = 100; i %step_interval == 0) {
             double time_in_hours = (i * delta_t) / 3.6;
             if (std::fmod(time_in_hours, 0.5) == 0){
                 outfile << formatNumber(i * delta_t / 3.6) << ";"
@@ -221,7 +222,7 @@ int main() {
 
     auto start_time = std::chrono::high_resolution_clock::now();
 
-    readInput("D:/ScientWork/SimOfMachFailure/config/configExp.txt");
+    readInput("SimOfMachFailure/config/configExp.txt");
 
     std::vector<std::vector<int>> experiments;
     std::vector<int> working_machines;
@@ -230,13 +231,14 @@ int main() {
         working_machines = simulate();
         experiments.push_back(working_machines);
     }
-    auto end_time = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end_time - start_time;
 
     std::vector<double> failure_mean = calculateMean(experiments);
     std::vector<double> variance_mean = calculateVariance(experiments, failure_mean);
     std::vector<double> analitical_mean = calculateAnalyticalM();
     std::vector<double> analitical_var = calculateAnalyticalD();
+
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end_time - start_time;
 
     saveToCSV(failure_mean,variance_mean,analitical_mean, analitical_var);
 

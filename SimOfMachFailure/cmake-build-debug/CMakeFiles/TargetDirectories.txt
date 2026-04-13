@@ -1,7 +1,7 @@
 C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/OneExperiment.dir
-C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperiments.dir
-C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsLogNormal.dir
+C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/exponential_experiments.dir
+C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/lognormal_experiments.dir
+C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/weibull_experiments.dir
 C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentsParallel.dir
-C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/LotsExperimentVeibulla.dir
 C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/yurav/CLionProjects/ScientWork/SimOfMachFailure/cmake-build-debug/CMakeFiles/rebuild_cache.dir

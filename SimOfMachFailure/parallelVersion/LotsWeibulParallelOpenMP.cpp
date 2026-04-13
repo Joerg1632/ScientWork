@@ -126,7 +126,7 @@ void saveToCSV(const std::vector<double>& mean_working,
 }
 
 int main() {
-    readInput("/mnt/d/ScientWork/SimOfMachFailure/config/configWeibul.txt");
+    readInput("/mnt/d/ScientWork/SimOfMachFailure/config/configWeibull.txt");
 
     int num_steps = static_cast<int>(T / delta_t);
 

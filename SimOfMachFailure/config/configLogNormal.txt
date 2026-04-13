@@ -1,8 +1,10 @@
-9.03       # mu_f → MTTF ≈ 10000 сек
-0.55       # sigma_f → CV ≈ 0.6
-4.16       # mu_r → MTTR ≈ 100 сек
-0.70       # sigma_r → CV ≈ 0.8
-10000      # N
-0.1        # delta_t
-25200      # T
-1000        # experiments
+0.001      # lambda
+0.00003       # mu
+0.0036        # sigma
+0.00003            # mu_rec = ln(1) - sigma_rec^2/2
+0.0036       # sigma_rec
+1.0        # nu
+10000      # initial_N
+0.001      # delta_t
+150        # T
+100        # num_experiments
