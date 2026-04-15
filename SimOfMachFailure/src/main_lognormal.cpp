@@ -182,14 +182,14 @@ void saveToCSV(const std::vector<double>& mean,
                "Analytical mean;Analytical mean+Sqrt(Var)\n";
 
     int num_steps = static_cast<int>(T / delta_t);
-    constexpr int step_interval = 1000;
+    constexpr int step_interval = 100;
 
     for (int i = 0; i < num_steps; ++i) {
         if (i % step_interval != 0) continue;
-        double t = i * delta_t;
+        double time_h = (i * delta_t) / 3.6;
 
-        if (std::fmod(t, 50.0) < 1e-9)
-            outfile << formatNumber(t) << ";";
+        if (std::fmod(time_h, 6.0) < 1e-6)
+            outfile << formatNumber(time_h) << ";";
         else
             outfile << ";";
 

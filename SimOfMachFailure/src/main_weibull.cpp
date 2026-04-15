@@ -8,25 +8,23 @@
 #include <windows.h>
 #include <chrono>
 #include <filesystem>
+#include <omp.h>
 #include <sstream>
 
-double lambda;         // интенсивность отказов одной машины (как в экспоненте)
-double lambda_w;       // λ для Вейбулла — подбирается из условия сопоставимости
-double delta_shape;    // δ — параметр формы Вейбулла
+double lambda;
+double lambda_w;
+double delta_shape;
 int    initial_N;
 double delta_t;
 double T;
 int    num_experiments;
-double nu;             // интенсивность восстановления
-double nu_w;           // ν для Вейбулла
-
-std::default_random_engine generator(std::random_device{}());
-std::uniform_real_distribution<double> distribution(0.0, 1.0);
+double nu;
+double nu_w;
 
 double calculateFailureProbability(int cur_N, double t) {
     if (t <= 0.0) t = 1e-9;
-    double H_now  = std::pow(lambda_w * cur_N * t,            delta_shape);
-    double H_next = std::pow(lambda_w * cur_N * (t + delta_t), delta_shape);
+    double H_now  = std::pow(lambda_w * cur_N * t,           delta_shape);
+    double H_next = std::pow(lambda_w * cur_N *(t + delta_t), delta_shape);
     return 1.0 - std::exp(-(H_next - H_now));
 }
 
@@ -34,12 +32,13 @@ double calculateRecoveryProbability(int cur_N, double t) {
     int failed_N = initial_N - cur_N;
     if (failed_N <= 0) return 0.0;
     if (t <= 0.0) t = 1e-9;
-    double H_now  = std::pow(nu_w * failed_N * t,             delta_shape);
-    double H_next = std::pow(nu_w * failed_N * (t + delta_t), delta_shape);
+    double H_now  =  std::pow(nu_w * failed_N * t,           delta_shape);
+    double H_next =  std::pow(nu_w * failed_N *(t + delta_t), delta_shape);
     return 1.0 - std::exp(-(H_next - H_now));
 }
 
-std::vector<int> simulate() {
+std::vector<int> simulate(std::default_random_engine& rng) {
+    std::uniform_real_distribution<double> dist(0.0, 1.0);
     int current_N = initial_N;
     int num_steps = static_cast<int>(T / delta_t);
     std::vector<int> working_machines(num_steps, initial_N);
@@ -48,11 +47,11 @@ std::vector<int> simulate() {
         double t = i * delta_t;
 
         double p_fail = calculateFailureProbability(current_N, t);
-        if (distribution(generator) < p_fail && current_N > 0)
+        if (dist(rng) < p_fail && current_N > 0)
             current_N--;
 
         double p_rec = calculateRecoveryProbability(current_N, t);
-        if (distribution(generator) < p_rec && current_N < initial_N)
+        if (dist(rng) < p_rec && current_N < initial_N)
             current_N++;
 
         working_machines[i] = current_N;
@@ -85,7 +84,6 @@ std::vector<double> calculateVariance(const std::vector<std::vector<int>>& exper
     return variance;
 }
 
-// Аналитика экспоненты — для сравнения на том же графике
 std::vector<double> calculateAnalyticalM() {
     int num_steps = static_cast<int>(T / delta_t);
     std::vector<double> analytical_mean(num_steps, 0.0);
@@ -101,13 +99,13 @@ std::vector<double> calculateAnalyticalM() {
 std::vector<double> calculateAnalyticalD() {
     int num_steps = static_cast<int>(T / delta_t);
     std::vector<double> analytical_variance(num_steps, 0.0);
-    for (int t = 0; t < num_steps; ++t) {
+    for (int i = 0; i < num_steps; ++i) {
+        double t = i * delta_t;
         double coeff1 = (initial_N * lambda * nu) / std::pow(lambda + nu, 2);
         double coeff2 = std::pow(lambda, 2) * initial_N / std::pow(lambda + nu, 2);
-        double coeff3 = std::pow(lambda, 2) * initial_N / std::pow(lambda + nu, 2);
-        analytical_variance[t] = coeff1
-            - coeff2 * std::exp(-(lambda + nu) * t)
-            - coeff3 * std::exp(-2.0 * (lambda + nu) * t);
+        analytical_variance[i] = coeff1
+        - coeff2 * std::exp(-(lambda + nu) * t)
+        - coeff2 * std::exp(-2.0 * (lambda + nu) * t);
     }
     return analytical_variance;
 }
@@ -168,10 +166,10 @@ void saveToCSV(const std::vector<double>& mean,
 
     for (int i = 0; i < num_steps; ++i) {
         if (i % step_interval != 0) continue;
-        double time = i * delta_t / 3.6;
+        double time_h = i * delta_t / 3.6;
 
-        if (std::fmod(time, 0.5) == 0)
-            outfile << formatNumber(time) << ";";
+        if (std::fmod(time_h, 6.0) < 1e-6)
+            outfile << formatNumber(time_h) << ";";
         else
             outfile << ";";
 
@@ -229,22 +227,32 @@ int main() {
 
     readInput("SimOfMachFailure/config/configWeibull.txt");
 
-    std::vector<std::vector<int>> experiments;
-    experiments.reserve(num_experiments);
-    for (int i = 0; i < num_experiments; ++i)
-        experiments.push_back(simulate());
+    std::vector<std::vector<int>> experiments(num_experiments);
+
+    #pragma omp parallel
+    {
+        std::default_random_engine rng(
+            std::random_device{}() ^
+            static_cast<unsigned>(omp_get_thread_num() * 2654435761u)
+        );
+
+        #pragma omp for schedule(dynamic, 10)
+        for (int i = 0; i < num_experiments; ++i)
+            experiments[i] = simulate(rng);
+    }
 
     auto end_time = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = end_time - start_time;
 
-    auto mean           = calculateMean(experiments);
-    auto variance       = calculateVariance(experiments, mean);
-    auto analytical_m   = calculateAnalyticalM();
-    auto analytical_d   = calculateAnalyticalD();
+    auto mean         = calculateMean(experiments);
+    auto variance     = calculateVariance(experiments, mean);
+    auto analytical_m = calculateAnalyticalM();
+    auto analytical_d = calculateAnalyticalD();
 
     saveToCSV(mean, variance, analytical_m, analytical_d);
 
     std::cout << "Симуляция завершена.\n";
+    std::cout << "Потоков использовано: " << omp_get_max_threads() << "\n";
     std::cout << "Время выполнения: " << elapsed.count() << " сек.\n";
     return 0;
 }

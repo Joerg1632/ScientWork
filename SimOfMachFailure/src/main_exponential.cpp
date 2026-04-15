@@ -156,26 +156,23 @@ void saveToCSV(const std::vector<double>& failure_mean,
     outfile << "Time;FailureMean;FailureMean+Sqrt(Var);"
                "AnalyticalMean;AnalyticalMean+sqrt(Var);\n";
 
-    const int num_steps = T/delta_t;
+    int num_steps = static_cast<int>(T / delta_t);
+    constexpr int step_interval = 100;
 
     for (int i = 0; i < num_steps; ++i) {
-        if (int step_interval = 100; i %step_interval == 0) {
-            double time_in_hours = (i * delta_t) / 3.6;
-            if (std::fmod(time_in_hours, 0.5) == 0){
-                outfile << formatNumber(i * delta_t / 3.6) << ";"
-                << formatNumber(initial_N - failure_mean[i]) << ";"
-                << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
-                << formatNumber(analiticalMean[i]) << ";"
-                << formatNumber(analiticalMean[i] + std::sqrt(analiticalVar[i])) << ";\n";
-            }
-            else {
-                outfile << ";"
-                << formatNumber(initial_N - failure_mean[i]) << ";"
-                << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
-                << formatNumber(analiticalMean[i]) << ";"
-                << formatNumber(analiticalMean[i] + std::sqrt(analiticalVar[i])) << ";\n";
-            }
-        }
+        if (i %step_interval != 0) continue;
+        double time_h = (i * delta_t) / 3.6;
+
+        if (std::fmod(time_h, 6.0) < 1e-6)
+            outfile << formatNumber(time_h) << ";";
+        else
+            outfile << ";";
+
+        outfile << formatNumber(initial_N - failure_mean[i]) << ";"
+        << formatNumber(initial_N - failure_mean[i] + std::sqrt(failure_variance[i])) << ";"
+        << formatNumber(analiticalMean[i]) << ";"
+        << formatNumber(analiticalMean[i] + std::sqrt(analiticalVar[i])) << ";\n";
+
     }
 
     outfile.close();
