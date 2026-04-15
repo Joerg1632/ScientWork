@@ -30,19 +30,14 @@ double lognormalSurvival(double t, double mu, double sigma) {
     return 1.0 - normalCDF(z);
 }
 
-double H(double t, double mu, double sigma) {
-    double S = lognormalSurvival(t, mu, sigma);
-    if (S <= 1e-12) S = 1e-12;
-    return -std::log(S);
-}
-
 double calculateFailureProbability(int cur_N, double t) {
     if (t <= 0.0) t = 1e-9;
 
-    double H_now  = cur_N * H(t, mu, sigma);
-    double H_next = cur_N * H(t + delta_t, mu, sigma);
+    double S_now  = lognormalSurvival(t,          mu, sigma);
+    double S_next = lognormalSurvival(t + delta_t, mu, sigma);
 
-    return 1.0 - std::exp(-(H_next - H_now));
+    if (S_now < 1e-12) return 1.0;
+    return 1.0 - std::pow(S_next / S_now, cur_N);
 }
 
 double calculateRecoveryProbability(int cur_N, double t) {
@@ -50,10 +45,11 @@ double calculateRecoveryProbability(int cur_N, double t) {
     if (failed_N <= 0) return 0.0;
     if (t <= 0.0) t = 1e-9;
 
-    double H_now  = failed_N * H(t, mu_rec, sigma_rec);
-    double H_next = failed_N * H(t + delta_t, mu_rec, sigma_rec);
+    double S_now  = lognormalSurvival(t,          mu_rec, sigma_rec);
+    double S_next = lognormalSurvival(t + delta_t, mu_rec, sigma_rec);
 
-    return 1.0 - std::exp(-(H_next - H_now));
+    if (S_now < 1e-12) return 1.0;
+    return 1.0 - std::pow(S_next / S_now, failed_N);
 }
 
 std::vector<int> simulate(std::default_random_engine& rng) {
