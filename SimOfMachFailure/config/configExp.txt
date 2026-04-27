@@ -1,6 +1,6 @@
 0.001      # lambda
 10000       # initial_N
 0.001       # delta_t
-172.8      # T (sec/1000)
-10000   # num_experiments
+36.2      # T (sec/1000)
+1000   # num_experiments
 1     # nu

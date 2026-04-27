@@ -168,7 +168,7 @@ void saveToCSV(const std::vector<double>& mean,
         if (i % step_interval != 0) continue;
         double time_h = i * delta_t / 3.6;
 
-        if (std::fmod(time_h, 6.0) < 1e-6)
+        if (std::fmod(time_h, 2) < 1e-6)
             outfile << formatNumber(time_h) << ";";
         else
             outfile << ";";

@@ -1,10 +1,10 @@
 0.001      # lambda
-0.000036       # mu
-0.0035        # sigma
-0.000036            # mu_rec = ln(1) - sigma_rec^2/2
-0.0035       # sigma_rec
+6.8       # mu
+1        # sigma
+0.2          # mu_rec = ln(1) - sigma_rec^2/2
+-0.125       # sigma_rec
 1.0        # nu
 10000      # initial_N
 0.001      # delta_t
-172.8       # T
-1000        # num_experiments
+500       # T
+100        # num_experiments

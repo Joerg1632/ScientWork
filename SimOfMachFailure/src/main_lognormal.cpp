@@ -20,60 +20,66 @@ double delta_t;
 double T;
 int    num_experiments;
 
-double normalCDF(double x) {
-    return 0.5 * (1.0 + erf(x / std::sqrt(2.0)));
+double sampleNormalCLT(std::default_random_engine& rng) {
+    std::uniform_real_distribution<double> dist(0.0, 1.0);
+
+    const int N = 12;
+    double sum = 0.0;
+
+    for (int i = 0; i < N; ++i)
+        sum += dist(rng);
+
+    return (sum - N / 2.0) / std::sqrt(N / 12.0);
 }
 
-double lognormalSurvival(double t, double mu, double sigma) {
-    if (t <= 0.0) return 1.0;
-    double z = (std::log(t) - mu) / sigma;
-    return 1.0 - normalCDF(z);
+double sampleLogNormal(std::default_random_engine& rng, double mu, double sigma) {
+    double Z = sampleNormalCLT(rng);
+    return std::exp(mu + sigma * Z);
 }
 
-double calculateFailureProbability(int cur_N, double t) {
-    if (t <= 0.0) t = 1e-9;
-
-    double S_now  = lognormalSurvival(t,          mu, sigma);
-    double S_next = lognormalSurvival(t + delta_t, mu, sigma);
-
-    if (S_now < 1e-12) return 1.0;
-    return 1.0 - std::pow(S_next / S_now, cur_N);
-}
-
-double calculateRecoveryProbability(int cur_N, double t) {
-    int failed_N = initial_N - cur_N;
-    if (failed_N <= 0) return 0.0;
-    if (t <= 0.0) t = 1e-9;
-
-    double S_now  = lognormalSurvival(t,          mu_rec, sigma_rec);
-    double S_next = lognormalSurvival(t + delta_t, mu_rec, sigma_rec);
-
-    if (S_now < 1e-12) return 1.0;
-    return 1.0 - std::pow(S_next / S_now, failed_N);
-}
+struct Machine {
+    bool working;
+    double time_to_event;
+};
 
 std::vector<int> simulate(std::default_random_engine& rng) {
     std::uniform_real_distribution<double> dist(0.0, 1.0);
 
-    int current_N = initial_N;
     int num_steps = static_cast<int>(T / delta_t);
-    std::vector<int> working_machines(num_steps, initial_N);
+    std::vector<int> working_count(num_steps);
 
-    for (int i = 0; i < num_steps; ++i) {
-        double t = (i == 0) ? 1e-9 : i * delta_t;
+    std::vector<Machine> machines(initial_N);
 
-        double p_fail = calculateFailureProbability(current_N, t);
-        if (dist(rng) < p_fail && current_N > 0)
-            current_N--;
-
-        double p_rec = calculateRecoveryProbability(current_N, t);
-        if (dist(rng) < p_rec && current_N < initial_N)
-            current_N++;
-
-        working_machines[i] = current_N;
+    for (auto& m : machines) {
+        m.working = true;
+        m.time_to_event = sampleLogNormal(rng, mu, sigma);
     }
 
-    return working_machines;
+    for (int step = 0; step < num_steps; ++step) {
+
+        int current_working = 0;
+
+        for (auto& m : machines) {
+
+            m.time_to_event -= delta_t;
+
+            if (m.time_to_event <= 0.0) {
+                if (m.working) {
+                    m.working = false;
+                    m.time_to_event = sampleLogNormal(rng, mu_rec, sigma_rec);
+                } else {
+                    m.working = true;
+                    m.time_to_event = sampleLogNormal(rng, mu, sigma);
+                }
+            }
+
+            if (m.working) current_working++;
+        }
+
+        working_count[step] = current_working;
+    }
+
+    return working_count;
 }
 
 std::vector<double> calculateMean(const std::vector<std::vector<int>>& experiments) {
@@ -178,13 +184,13 @@ void saveToCSV(const std::vector<double>& mean,
                "Analytical mean;Analytical mean+Sqrt(Var)\n";
 
     int num_steps = static_cast<int>(T / delta_t);
-    constexpr int step_interval = 100;
+    constexpr int step_interval = 500;
 
     for (int i = 0; i < num_steps; ++i) {
         if (i % step_interval != 0) continue;
         double time_h = (i * delta_t) / 3.6;
 
-        if (std::fmod(time_h, 6.0) < 1e-6)
+        if (std::fmod(time_h, 2.0) < 1e-6)
             outfile << formatNumber(time_h) << ";";
         else
             outfile << ";";

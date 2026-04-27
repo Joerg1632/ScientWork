@@ -5,5 +5,5 @@
 1.0        # nu_w
 10000      # initial_N
 0.001      # delta_t
-173        # T
+36.1        # T
 10000      # num_experiments
